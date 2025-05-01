@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Globe, Menu, X, User, LogOut } from 'lucide-react';
+import { Globe, Menu, X, User, LogOut, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { useAuth } from '../context/AuthContext';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -61,9 +61,19 @@ const Navbar: React.FC = () => {
             
             <button
               onClick={toggleTheme}
-              className="px-3 py-2 text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition duration-300"
+              className="flex items-center px-3 py-2 text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition duration-300"
             >
-              {theme === 'dark' ? t('navbar.lightMode') : t('navbar.darkMode')}
+              {theme === 'dark' ? (
+                <>
+                  <Sun className="w-5 h-5 mr-1 rtl:ml-1 rtl:mr-0" />
+                  {t('navbar.lightMode')}
+                </>
+              ) : (
+                <>
+                  <Moon className="w-5 h-5 mr-1 rtl:ml-1 rtl:mr-0" />
+                  {t('navbar.darkMode')}
+                </>
+              )}
             </button>
             
             {isAuthenticated ? (
@@ -146,9 +156,19 @@ const Navbar: React.FC = () => {
                 toggleTheme();
                 setIsMenuOpen(false);
               }}
-              className="w-full text-left rtl:text-right px-3 py-2 text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition duration-300"
+              className="w-full text-left rtl:text-right flex items-center px-3 py-2 text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition duration-300"
             >
-              {theme === 'dark' ? t('navbar.lightMode') : t('navbar.darkMode')}
+              {theme === 'dark' ? (
+                <>
+                  <Sun className="w-5 h-5 mr-1 rtl:ml-1 rtl:mr-0" />
+                  {t('navbar.lightMode')}
+                </>
+              ) : (
+                <>
+                  <Moon className="w-5 h-5 mr-1 rtl:ml-1 rtl:mr-0" />
+                  {t('navbar.darkMode')}
+                </>
+              )}
             </button>
             
             {isAuthenticated ? (
@@ -163,7 +183,7 @@ const Navbar: React.FC = () => {
                 </Link>
                 <button
                   onClick={handleLogout}
-                  className="w-full text-left rtl:text-right px-3 py-2 text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition duration-300"
+                  className="w-full text-left rtl:text-right flex items-center px-3 py-2 text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition duration-300"
                 >
                   <LogOut className="w-5 h-5 inline-block mr-1 rtl:ml-1 rtl:mr-0" />
                   {t('navbar.logout')}
