@@ -1,0 +1,254 @@
+{
+  "navbar": {
+    "home": "Home",
+    "language": "Language",
+    "login": "Login",
+    "signup": "Sign Up",
+    "dashboard": "Dashboard",
+    "logout": "Logout",
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode"
+  },
+  "home": {
+    "hero": {
+      "title": "Book Your Next Adventure",
+      "subtitle": "Find the perfect car, hotel, restaurant, or activity for your journey",
+      "cta": "Explore Now"
+    },
+    "categories": {
+      "title": "What Would You Like to Book?",
+      "carDescription": "Explore with freedom and comfort",
+      "hotelDescription": "Find your perfect stay",
+      "restaurantDescription": "Savor local and international cuisine",
+      "activityDescription": "Create unforgettable memories"
+    },
+    "features": {
+      "title": "Why Choose Op Way",
+      "feature1": {
+        "title": "Fast Bookings",
+        "description": "Quick and easy booking process with instant confirmation"
+      },
+      "feature2": {
+        "title": "Secure Payments",
+        "description": "Your transactions are protected with advanced security"
+      },
+      "feature3": {
+        "title": "Best Prices",
+        "description": "Guaranteed best rates and exclusive deals"
+      }
+    },
+    "testimonials": {
+      "title": "What Our Customers Say",
+      "testimonial1": {
+        "initials": "JD",
+        "name": "John Davis",
+        "location": "New York, USA",
+        "content": "Op Way made my vacation planning so easy. The hotel recommendations were perfect, and the booking process was smooth."
+      },
+      "testimonial2": {
+        "initials": "SM",
+        "name": "Sarah Miller",
+        "location": "London, UK",
+        "content": "I've used several booking platforms, but Op Way stands out with its intuitive interface and excellent AI recommendations."
+      },
+      "testimonial3": {
+        "initials": "AK",
+        "name": "Ahmed Khan",
+        "location": "Dubai, UAE",
+        "content": "The multilingual support is fantastic! I could book in my preferred language, and customer service was excellent."
+      }
+    },
+    "newsletter": {
+      "title": "Stay Updated",
+      "subtitle": "Subscribe to our newsletter for exclusive offers and travel inspiration",
+      "placeholder": "Your email address",
+      "button": "Subscribe"
+    }
+  },
+  "categories": {
+    "cars": "Cars",
+    "hotels": "Hotels",
+    "restaurants": "Restaurants",
+    "activities": "Activities"
+  },
+  "login": {
+    "title": "Sign In to Your Account",
+    "email": "Email address",
+    "password": "Password",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot your password?",
+    "signIn": "Sign In",
+    "loggingIn": "Signing in...",
+    "noAccount": "Don't have an account?",
+    "signupLink": "Sign up",
+    "orContinueWith": "Or continue with",
+    "error": {
+      "fieldsRequired": "All fields are required",
+      "generic": "Login failed. Please try again."
+    }
+  },
+  "signup": {
+    "title": "Create Your Account",
+    "name": "Full name",
+    "email": "Email address",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "termsAgree": "I agree to the",
+    "terms": "Terms and Conditions",
+    "createAccount": "Create Account",
+    "creating": "Creating account...",
+    "alreadyHaveAccount": "Already have an account?",
+    "loginLink": "Sign in",
+    "error": {
+      "passwordsDoNotMatch": "Passwords do not match",
+      "fieldsRequired": "All fields are required",
+      "generic": "Registration failed. Please try again."
+    }
+  },
+  "booking": {
+    "title": "Book {{category}}",
+    "filters": "Filters",
+    "location": "Location",
+    "enterLocation": "Enter location",
+    "minPrice": "Min Price",
+    "maxPrice": "Max Price",
+    "date": "Date",
+    "time": "Time",
+    "people": "People",
+    "search": "Search",
+    "book": "Book Now",
+    "person": "person",
+    "priceLevel": "Price Level",
+    "confirmTitle": "Confirm Your Booking",
+    "notSpecified": "Not specified",
+    "price": "Total Price",
+    "cancel": "Cancel",
+    "confirm": "Confirm Booking",
+    "success": "Booking successful! Check your email for confirmation."
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "message": "Sorry, we couldn't find the page you're looking for.",
+    "backHome": "Back to Home"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "nav": {
+      "bookings": "My Bookings",
+      "profile": "Profile",
+      "payment": "Payment Methods",
+      "settings": "Settings",
+      "logout": "Logout"
+    },
+    "bookings": {
+      "title": "My Bookings",
+      "noBookings": "No bookings yet",
+      "startBooking": "Start exploring and book your first experience",
+      "exploreOptions": "Explore Options",
+      "confirmed": "Confirmed",
+      "pending": "Pending",
+      "cancelled": "Cancelled",
+      "people": "people",
+      "total": "Total",
+      "modify": "Modify",
+      "cancel": "Cancel",
+      "confirm": "Confirm"
+    },
+    "profile": {
+      "title": "My Profile",
+      "edit": "Edit Profile",
+      "save": "Save Changes",
+      "saving": "Saving...",
+      "cancel": "Cancel",
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "address": "Address",
+      "city": "City",
+      "country": "Country",
+      "bio": "Bio"
+    },
+    "payment": {
+      "title": "Payment Methods",
+      "methods": "My Payment Methods",
+      "addCard": "Add Card",
+      "addNewCard": "Add New Payment Method",
+      "cardNumber": "Card Number",
+      "cardName": "Name on Card",
+      "cardNamePlaceholder": "John Doe",
+      "expMonth": "Exp. Month",
+      "expYear": "Exp. Year",
+      "makeDefault": "Make this my default payment method",
+      "cancel": "Cancel",
+      "saveCard": "Save Card",
+      "expires": "Expires",
+      "default": "Default",
+      "setDefault": "Set as Default",
+      "noMethods": "No payment methods yet",
+      "addMethodPrompt": "Add a credit or debit card to make bookings",
+      "recentTransactions": "Recent Transactions",
+      "date": "Date",
+      "description": "Description",
+      "amount": "Amount",
+      "status": "Status",
+      "completed": "Completed",
+      "pending": "Pending"
+    },
+    "settings": {
+      "title": "Settings",
+      "preferences": "Preferences",
+      "language": "Language",
+      "languageDesc": "Select your preferred language",
+      "theme": "Theme",
+      "themeDesc": "Choose between light and dark mode",
+      "lightMode": "Light Mode",
+      "darkMode": "Dark Mode",
+      "notifications": "Notifications",
+      "notificationPreferences": "Notification Preferences",
+      "emailNotifications": "Email notifications",
+      "smsNotifications": "SMS notifications",
+      "browserNotifications": "Browser notifications",
+      "marketingNotifications": "Marketing emails and offers",
+      "privacy": "Privacy",
+      "privacyPreferences": "Privacy Preferences",
+      "shareData": "Share anonymous booking data to improve recommendations",
+      "saveHistory": "Save search and browsing history",
+      "locationTracking": "Allow location tracking for nearby recommendations",
+      "dangerZone": "Danger Zone",
+      "deleteAccount": "Delete Account",
+      "deleteWarning": "Once you delete your account, there is no going back. Please be certain.",
+      "confirmDelete": "Are you sure?",
+      "confirmDeleteMessage": "This action cannot be undone. This will permanently delete your account and remove your data from our servers.",
+      "cancel": "Cancel",
+      "confirmButton": "Yes, delete my account",
+      "accountDeleted": "Your account has been deleted successfully."
+    }
+  },
+  "footer": {
+    "tagline": "Your trusted booking platform for unforgettable experiences.",
+    "services": "Our Services",
+    "links": "Quick Links",
+    "about": "About Us",
+    "contact": "Contact Us",
+    "terms": "Terms & Conditions",
+    "privacy": "Privacy Policy",
+    "address": "123 Booking Street, City Center",
+    "rights": "All rights reserved."
+  },
+  "ai": {
+    "welcome": "Hello! I'm your booking assistant. How can I help you today?",
+    "welcomeWithCategory": "Hello! I can help you find the perfect {{category}} booking. What are you looking for?",
+    "openChat": "Open assistant chat",
+    "closeChat": "Close chat",
+    "assistantName": "Op Way Assistant",
+    "typePlaceholder": "Type your message...",
+    "send": "Send message",
+    "hotelResponse": "I'd recommend checking our hotel listings with filters for your preferred amenities. Are you looking for something specific like a pool, spa, or pet-friendly options?",
+    "carResponse": "For car rentals, I can help you find options based on size, features, and price range. Do you need a specific type of vehicle?",
+    "restaurantResponse": "Our restaurant bookings offer a wide variety of cuisines. Do you have any dietary preferences or are you looking for a specific atmosphere?",
+    "activityResponse": "From city tours to adventure sports, we have many activities to choose from. Are you interested in something relaxing or more adventurous?",
+    "budgetResponse": "I can help you find options within your budget. Our platform offers filters for price ranges and also shows special deals and discounts.",
+    "accountResponse": "You can easily create an account or log in to manage your bookings, save your preferences, and get personalized recommendations.",
+    "generalResponse": "I'm here to help with any booking needs. You can ask about hotels, cars, restaurants, or activities. Is there something specific you're looking for?"
+  }
+}

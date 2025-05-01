@@ -1,0 +1,254 @@
+{
+  "navbar": {
+    "home": "Accueil",
+    "language": "Langue",
+    "login": "Connexion",
+    "signup": "S'inscrire",
+    "dashboard": "Tableau de bord",
+    "logout": "Déconnexion",
+    "darkMode": "Mode sombre",
+    "lightMode": "Mode clair"
+  },
+  "home": {
+    "hero": {
+      "title": "Réservez votre prochaine aventure",
+      "subtitle": "Trouvez la voiture, l'hôtel, le restaurant ou l'activité parfaite pour votre voyage",
+      "cta": "Explorer maintenant"
+    },
+    "categories": {
+      "title": "Que voulez-vous réserver?",
+      "carDescription": "Explorez avec liberté et confort",
+      "hotelDescription": "Trouvez votre séjour parfait",
+      "restaurantDescription": "Savourez la cuisine locale et internationale",
+      "activityDescription": "Créez des souvenirs inoubliables"
+    },
+    "features": {
+      "title": "Pourquoi choisir Op Way",
+      "feature1": {
+        "title": "Réservations rapides",
+        "description": "Processus de réservation simple avec confirmation instantanée"
+      },
+      "feature2": {
+        "title": "Paiements sécurisés",
+        "description": "Vos transactions sont protégées avec une sécurité avancée"
+      },
+      "feature3": {
+        "title": "Meilleurs prix",
+        "description": "Meilleurs tarifs garantis et offres exclusives"
+      }
+    },
+    "testimonials": {
+      "title": "Ce que disent nos clients",
+      "testimonial1": {
+        "initials": "JD",
+        "name": "Jean Dupont",
+        "location": "Paris, France",
+        "content": "Op Way a rendu la planification de mes vacances très facile. Les recommandations d'hôtels étaient parfaites et le processus de réservation était fluide."
+      },
+      "testimonial2": {
+        "initials": "ML",
+        "name": "Marie Laurent",
+        "location": "Lyon, France",
+        "content": "J'ai utilisé plusieurs plateformes de réservation, mais Op Way se distingue par son interface intuitive et ses excellentes recommandations IA."
+      },
+      "testimonial3": {
+        "initials": "PB",
+        "name": "Pierre Blanc",
+        "location": "Montréal, Canada",
+        "content": "Le support multilingue est fantastique! J'ai pu réserver dans ma langue préférée et le service client était excellent."
+      }
+    },
+    "newsletter": {
+      "title": "Restez informé",
+      "subtitle": "Abonnez-vous à notre newsletter pour des offres exclusives et de l'inspiration voyage",
+      "placeholder": "Votre adresse email",
+      "button": "S'abonner"
+    }
+  },
+  "categories": {
+    "cars": "Voitures",
+    "hotels": "Hôtels",
+    "restaurants": "Restaurants",
+    "activities": "Activités"
+  },
+  "login": {
+    "title": "Connectez-vous à votre compte",
+    "email": "Adresse email",
+    "password": "Mot de passe",
+    "rememberMe": "Se souvenir de moi",
+    "forgotPassword": "Mot de passe oublié?",
+    "signIn": "Se connecter",
+    "loggingIn": "Connexion en cours...",
+    "noAccount": "Vous n'avez pas de compte?",
+    "signupLink": "S'inscrire",
+    "orContinueWith": "Ou continuer avec",
+    "error": {
+      "fieldsRequired": "Tous les champs sont requis",
+      "generic": "Échec de connexion. Veuillez réessayer."
+    }
+  },
+  "signup": {
+    "title": "Créez votre compte",
+    "name": "Nom complet",
+    "email": "Adresse email",
+    "password": "Mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "termsAgree": "J'accepte les",
+    "terms": "Conditions générales",
+    "createAccount": "Créer un compte",
+    "creating": "Création du compte...",
+    "alreadyHaveAccount": "Vous avez déjà un compte?",
+    "loginLink": "Se connecter",
+    "error": {
+      "passwordsDoNotMatch": "Les mots de passe ne correspondent pas",
+      "fieldsRequired": "Tous les champs sont requis",
+      "generic": "Échec d'inscription. Veuillez réessayer."
+    }
+  },
+  "booking": {
+    "title": "Réserver {{category}}",
+    "filters": "Filtres",
+    "location": "Emplacement",
+    "enterLocation": "Entrez l'emplacement",
+    "minPrice": "Prix min",
+    "maxPrice": "Prix max",
+    "date": "Date",
+    "time": "Heure",
+    "people": "Personnes",
+    "search": "Rechercher",
+    "book": "Réserver maintenant",
+    "person": "personne",
+    "priceLevel": "Niveau de prix",
+    "confirmTitle": "Confirmez votre réservation",
+    "notSpecified": "Non spécifié",
+    "price": "Prix total",
+    "cancel": "Annuler",
+    "confirm": "Confirmer la réservation",
+    "success": "Réservation réussie! Vérifiez votre email pour la confirmation."
+  },
+  "notFound": {
+    "title": "Page non trouvée",
+    "message": "Désolé, nous n'avons pas pu trouver la page que vous cherchez.",
+    "backHome": "Retour à l'accueil"
+  },
+  "dashboard": {
+    "title": "Tableau de bord",
+    "nav": {
+      "bookings": "Mes réservations",
+      "profile": "Profil",
+      "payment": "Moyens de paiement",
+      "settings": "Paramètres",
+      "logout": "Déconnexion"
+    },
+    "bookings": {
+      "title": "Mes réservations",
+      "noBookings": "Pas encore de réservations",
+      "startBooking": "Commencez à explorer et réservez votre première expérience",
+      "exploreOptions": "Explorer les options",
+      "confirmed": "Confirmée",
+      "pending": "En attente",
+      "cancelled": "Annulée",
+      "people": "personnes",
+      "total": "Total",
+      "modify": "Modifier",
+      "cancel": "Annuler",
+      "confirm": "Confirmer"
+    },
+    "profile": {
+      "title": "Mon profil",
+      "edit": "Modifier le profil",
+      "save": "Enregistrer les modifications",
+      "saving": "Enregistrement...",
+      "cancel": "Annuler",
+      "name": "Nom complet",
+      "email": "Adresse email",
+      "phone": "Numéro de téléphone",
+      "address": "Adresse",
+      "city": "Ville",
+      "country": "Pays",
+      "bio": "Bio"
+    },
+    "payment": {
+      "title": "Moyens de paiement",
+      "methods": "Mes moyens de paiement",
+      "addCard": "Ajouter une carte",
+      "addNewCard": "Ajouter un nouveau moyen de paiement",
+      "cardNumber": "Numéro de carte",
+      "cardName": "Nom sur la carte",
+      "cardNamePlaceholder": "Jean Dupont",
+      "expMonth": "Mois d'exp.",
+      "expYear": "Année d'exp.",
+      "makeDefault": "Définir comme moyen de paiement par défaut",
+      "cancel": "Annuler",
+      "saveCard": "Enregistrer la carte",
+      "expires": "Expire",
+      "default": "Par défaut",
+      "setDefault": "Définir par défaut",
+      "noMethods": "Pas encore de moyens de paiement",
+      "addMethodPrompt": "Ajoutez une carte de crédit ou de débit pour effectuer des réservations",
+      "recentTransactions": "Transactions récentes",
+      "date": "Date",
+      "description": "Description",
+      "amount": "Montant",
+      "status": "Statut",
+      "completed": "Terminée",
+      "pending": "En attente"
+    },
+    "settings": {
+      "title": "Paramètres",
+      "preferences": "Préférences",
+      "language": "Langue",
+      "languageDesc": "Sélectionnez votre langue préférée",
+      "theme": "Thème",
+      "themeDesc": "Choisissez entre le mode clair et sombre",
+      "lightMode": "Mode clair",
+      "darkMode": "Mode sombre",
+      "notifications": "Notifications",
+      "notificationPreferences": "Préférences de notification",
+      "emailNotifications": "Notifications par email",
+      "smsNotifications": "Notifications par SMS",
+      "browserNotifications": "Notifications du navigateur",
+      "marketingNotifications": "Emails marketing et offres",
+      "privacy": "Confidentialité",
+      "privacyPreferences": "Préférences de confidentialité",
+      "shareData": "Partager des données de réservation anonymes pour améliorer les recommandations",
+      "saveHistory": "Enregistrer l'historique de recherche et de navigation",
+      "locationTracking": "Autoriser le suivi de la localisation pour les recommandations à proximité",
+      "dangerZone": "Zone dangereuse",
+      "deleteAccount": "Supprimer le compte",
+      "deleteWarning": "Une fois que vous supprimez votre compte, il n'y a pas de retour en arrière. Veuillez être certain.",
+      "confirmDelete": "Êtes-vous sûr?",
+      "confirmDeleteMessage": "Cette action ne peut pas être annulée. Cela supprimera définitivement votre compte et supprimera vos données de nos serveurs.",
+      "cancel": "Annuler",
+      "confirmButton": "Oui, supprimer mon compte",
+      "accountDeleted": "Votre compte a été supprimé avec succès."
+    }
+  },
+  "footer": {
+    "tagline": "Votre plateforme de réservation de confiance pour des expériences inoubliables.",
+    "services": "Nos services",
+    "links": "Liens rapides",
+    "about": "À propos de nous",
+    "contact": "Contactez-nous",
+    "terms": "Conditions générales",
+    "privacy": "Politique de confidentialité",
+    "address": "123 Rue des Réservations, Centre-ville",
+    "rights": "Tous droits réservés."
+  },
+  "ai": {
+    "welcome": "Bonjour! Je suis votre assistant de réservation. Comment puis-je vous aider aujourd'hui?",
+    "welcomeWithCategory": "Bonjour! Je peux vous aider à trouver la réservation de {{category}} parfaite. Que recherchez-vous?",
+    "openChat": "Ouvrir l'assistant",
+    "closeChat": "Fermer le chat",
+    "assistantName": "Assistant Op Way",
+    "typePlaceholder": "Tapez votre message...",
+    "send": "Envoyer message",
+    "hotelResponse": "Je vous recommande de consulter nos listes d'hôtels avec des filtres pour vos commodités préférées. Recherchez-vous quelque chose de spécifique comme une piscine, un spa ou des options acceptant les animaux?",
+    "carResponse": "Pour les locations de voitures, je peux vous aider à trouver des options en fonction de la taille, des caractéristiques et de la gamme de prix. Avez-vous besoin d'un type de véhicule spécifique?",
+    "restaurantResponse": "Nos réservations de restaurants offrent une grande variété de cuisines. Avez-vous des préférences alimentaires ou recherchez-vous une ambiance particulière?",
+    "activityResponse": "Des visites de ville aux sports d'aventure, nous avons de nombreuses activités à choisir. Êtes-vous intéressé par quelque chose de relaxant ou plus aventureux?",
+    "budgetResponse": "Je peux vous aider à trouver des options dans votre budget. Notre plateforme offre des filtres de gammes de prix et affiche également des offres spéciales et des réductions.",
+    "accountResponse": "Vous pouvez facilement créer un compte ou vous connecter pour gérer vos réservations, enregistrer vos préférences et obtenir des recommandations personnalisées.",
+    "generalResponse": "Je suis là pour vous aider avec tous vos besoins de réservation. Vous pouvez me poser des questions sur les hôtels, les voitures, les restaurants ou les activités. Y a-t-il quelque chose de spécifique que vous recherchez?"
+  }
+}
