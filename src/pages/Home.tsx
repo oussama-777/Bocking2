@@ -1,30 +1,74 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useTheme } from '../context/ThemeContext';
 import CategoryCard from '../components/CategoryCard';
 import AiAssistant from '../components/AiAssistant';
+import { useNavigate } from 'react-router-dom';
+import { MapPin } from 'lucide-react';
+
+// Données de démonstration (normalement importées de BookingPage.tsx)
+const demoData = {
+  cars: [
+    { id: 1, name: 'Economy Sedan', price: 40, image: 'https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg', location: 'Downtown', rating: 4.7, reviews: 124 },
+    { id: 2, name: 'SUV Premium', price: 75, image: 'https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg', location: 'Airport', rating: 4.9, reviews: 86 },
+  ],
+  hotels: [
+    { id: 1, name: 'Grand Hotel', price: 120, image: 'https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg', location: 'Downtown', rating: 4.8, reviews: 345 },
+    { id: 2, name: 'Seaside Resort', price: 210, image: 'https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg', location: 'Beachfront', rating: 4.9, reviews: 267 },
+  ],
+  restaurants: [
+    { id: 1, name: 'Italian Bistro', price: 2, image: 'https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg', location: 'Downtown', rating: 4.6, reviews: 287 },
+    { id: 2, name: 'Sushi Place', price: 3, image: 'https://images.pexels.com/photos/5908255/pexels-photo-5908255.jpeg', location: 'Marina District', rating: 4.8, reviews: 156 },
+  ],
+  activities: [
+    { id: 1, name: 'City Tour', price: 45, image: 'https://images.pexels.com/photos/2129796/pexels-photo-2129796.png', location: 'City Center', rating: 4.7, reviews: 189 },
+    { id: 2, name: 'Hiking Adventure', price: 60, image: 'https://images.pexels.com/photos/2041759/pexels-photo-2041759.jpeg', location: 'Mountain Trail', rating: 4.9, reviews: 127 },
+  ],
+};
+
+// Fonction pour obtenir des éléments aléatoires
+const getRandomItems = (data: any[], count: number) => {
+  const shuffled = [...data].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, count);
+};
 
 const Home: React.FC = () => {
   const { t } = useTranslation();
+  const { theme } = useTheme();
+  const navigate = useNavigate();
+  
+  // Obtenir 1 élément aléatoire de chaque catégorie
+  const randomItems = [
+    ...getRandomItems(demoData.cars, 1),
+    ...getRandomItems(demoData.hotels, 1),
+    ...getRandomItems(demoData.restaurants, 1),
+    ...getRandomItems(demoData.activities, 1)
+  ];
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-700 to-blue-500 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            {t('home.hero.title')}
-          </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-8">
-            {t('home.hero.subtitle')}
-          </p>
-          <button className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300 transform hover:scale-105">
-            {t('home.hero.cta')}
-          </button>
+      <section className="relative text-white py-20 h-[350px] overflow-hidden">
+        <img 
+          src={`/src/Morocco Way/${theme === 'dark' ? '2' : '1'}.svg`}
+          alt="Morocco Way Background" 
+          className="absolute inset-0 w-full h-full object-cover opacity-100"
+          style={{
+            width: '100vw',
+            height: '100%',
+            objectPosition: 'center'
+          }}
+        />
+        {/* Overlay avec gradient */}
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative h-full flex flex-col justify-center">
+          
         </div>
       </section>
 
+
       {/* Categories Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-8">
         <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-12">
           {t('home.categories.title')}
         </h2>
@@ -32,25 +76,64 @@ const Home: React.FC = () => {
           <CategoryCard 
             type="cars"
             title={t('categories.cars')}
-            description={t('home.categories.carDescription')}
           />
           <CategoryCard 
             type="hotels"
             title={t('categories.hotels')}
-            description={t('home.categories.hotelDescription')}
           />
           <CategoryCard 
             type="restaurants"
             title={t('categories.restaurants')}
-            description={t('home.categories.restaurantDescription')}
           />
           <CategoryCard 
             type="activities"
             title={t('categories.activities')}
-            description={t('home.categories.activityDescription')}
           />
         </div>
       </section>
+            {/* Section Sélections Aléatoires */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pb-8">
+        <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-12">
+          {t('home.randomSelections', 'Nos meilleures sélections')}
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {randomItems.map((item) => (
+            <div key={item.id} className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition transform hover:-translate-y-1 hover:shadow-lg">
+              <div className="h-40 overflow-hidden">
+                <img 
+                  src={item.image} 
+                  alt={item.name} 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-4">
+                <h3 className="text-lg font-semibold text-gray-800 dark:text-white">{item.name}</h3>
+                <div className="flex items-center text-gray-600 dark:text-gray-300 mb-2">
+                  <MapPin className="h-4 w-4 mr-1 rtl:ml-1 rtl:mr-0" />
+                  <span className="text-sm">{item.location}</span>
+                </div>
+                <div className="mt-2 flex justify-between items-center">
+                  <span className="text-blue-600 dark:text-blue-400 font-medium">${item.price}</span>
+                  <button 
+                    onClick={() => navigate(`/booking/${item.hasOwnProperty('rooms') ? 'hotels' : 
+                                          item.hasOwnProperty('cuisine') ? 'restaurants' : 
+                                          item.hasOwnProperty('fuel') ? 'cars' : 'activities'}`)}
+                    className="text-sm text-white bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded transition"
+                  >
+                    {t('home.viewMore', 'Voir plus')}
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Séparateur visuel (optionnel) */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="border-t border-gray-200 dark:border-gray-700"></div>
+      </div>
+
 
       {/* Features Section */}
       <section className="bg-gray-100 dark:bg-gray-800 py-16">
@@ -129,9 +212,6 @@ const Home: React.FC = () => {
                 "{t(`home.testimonials.testimonial${index}.content`)}"
               </p>
               <div className="flex mt-4 text-yellow-400">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                 </svg>

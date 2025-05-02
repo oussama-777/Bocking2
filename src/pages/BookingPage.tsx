@@ -170,11 +170,64 @@ const BookingPage: React.FC = () => {
   
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      <div className="bg-blue-600 py-12">
+      <div className="bg-blue-900 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-white text-center">
-            {t('booking.title', { category: getCategoryTitle() })}
-          </h1>
+          <div className="flex flex-col items-center">
+            <div className="flex gap-6 justify-center">
+              <a 
+                href="/booking/hotels" 
+                className={`flex items-center px-6 py-3 rounded-lg transition duration-300 ${
+                  currentType === 'hotels' 
+                    ? 'bg-white text-blue-800 font-medium shadow-md' 
+                    : 'bg-blue-800 bg-opacity-30 hover:bg-opacity-40 text-white'
+                }`}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>
+                {t('categories.hotels')}
+              </a>
+              <a 
+                href="/booking/restaurants" 
+                className={`flex items-center px-6 py-3 rounded-lg transition duration-300 ${
+                  currentType === 'restaurants' 
+                    ? 'bg-white text-blue-800 font-medium shadow-md' 
+                    : 'bg-blue-800 bg-opacity-30 hover:bg-opacity-40 text-white'
+                }`}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                {t('categories.restaurants')}
+              </a>
+              <a 
+                href="/booking/activities" 
+                className={`flex items-center px-6 py-3 rounded-lg transition duration-300 ${
+                  currentType === 'activities' 
+                    ? 'bg-white text-blue-800 font-medium shadow-md' 
+                    : 'bg-blue-800 bg-opacity-30 hover:bg-opacity-40 text-white'
+                }`}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                {t('categories.activities')}
+              </a>
+              <a 
+                href="/booking/cars" 
+                className={`flex items-center px-6 py-3 rounded-lg transition duration-300 ${
+                  currentType === 'cars' 
+                    ? 'bg-white text-blue-800 font-medium shadow-md' 
+                    : 'bg-blue-800 bg-opacity-30 hover:bg-opacity-40 text-white'
+                }`}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                </svg>
+                {t('categories.cars')}
+              </a>
+            </div>
+          </div>
         </div>
       </div>
       

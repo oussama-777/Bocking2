@@ -83,7 +83,7 @@ const Navbar: React.FC = () => {
                   className="px-3 py-2 text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition duration-300"
                 >
                   <User className="w-5 h-5 inline-block mr-1 rtl:ml-1 rtl:mr-0" />
-                  {t('navbar.dashboard')}
+                  {t('Profile')}
                 </Link>
                 <button
                   onClick={handleLogout}
