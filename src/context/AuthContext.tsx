@@ -10,6 +10,7 @@ interface User {
   city?: string;
   country?: string;
   bio?: string;
+  profileImage?: string; // Ajout de la propriété profileImage
 }
 
 interface AuthContextProps {
@@ -92,17 +93,27 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     localStorage.removeItem('user');
   };
   
-  const updateProfile = async (data: Partial<User>) => {
-    // Simulate API call
+  // Assurez-vous que l'interface User inclut profileImage
+  interface User {
+    name: string;
+    email: string;
+    phone?: string;
+    address?: string;
+    country?: string;
+    bio?: string;
+    profileImage?: string;
+  }
+  
+  // Dans votre fonction updateProfile, assurez-vous de gérer la mise à jour de l'image
+  const updateProfile = async (updatedData: Partial<User>) => {
+    // Simuler un délai d'API
     await new Promise(resolve => setTimeout(resolve, 1000));
     
     if (user) {
-      const updatedUser = {
-        ...user,
-        ...data,
-      };
-      
+      const updatedUser = { ...user, ...updatedData };
       setUser(updatedUser);
+      
+      // Si vous utilisez localStorage pour la persistance
       localStorage.setItem('user', JSON.stringify(updatedUser));
     }
   };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Globe, Menu, X, User, LogOut, Sun, Moon } from 'lucide-react';
@@ -13,15 +13,38 @@ const Navbar: React.FC = () => {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
+  const languageMenuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-  const toggleLanguageMenu = () => setIsLanguageMenuOpen(!isLanguageMenuOpen);
-
+  
   const handleLogout = () => {
     logout();
     navigate('/');
     setIsMenuOpen(false);
   };
+
+  const handleLanguageMouseEnter = () => {
+    if (languageMenuTimeoutRef.current) {
+      clearTimeout(languageMenuTimeoutRef.current);
+      languageMenuTimeoutRef.current = null;
+    }
+    setIsLanguageMenuOpen(true);
+  };
+
+  const handleLanguageMouseLeave = () => {
+    languageMenuTimeoutRef.current = setTimeout(() => {
+      setIsLanguageMenuOpen(false);
+    }, 3000); // تأخير 3 ثواني
+  };
+
+  // تنظيف المؤقت عند إزالة المكون
+  useEffect(() => {
+    return () => {
+      if (languageMenuTimeoutRef.current) {
+        clearTimeout(languageMenuTimeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
     <nav className="bg-white dark:bg-gray-800 shadow-md transition-colors duration-300">
@@ -44,9 +67,12 @@ const Navbar: React.FC = () => {
               {t('navbar.home')}
             </Link>
             
-            <div className="relative">
+            <div 
+              className="relative"
+              onMouseEnter={handleLanguageMouseEnter}
+              onMouseLeave={handleLanguageMouseLeave}
+            >
               <button
-                onClick={toggleLanguageMenu}
                 className="flex items-center px-3 py-2 text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition duration-300"
                 aria-expanded={isLanguageMenuOpen}
               >
@@ -55,7 +81,9 @@ const Navbar: React.FC = () => {
               </button>
               
               {isLanguageMenuOpen && (
-                <LanguageSwitcher onClose={() => setIsLanguageMenuOpen(false)} />
+                <div className="absolute z-10 mt-1 w-48 rounded-md shadow-lg">
+                  <LanguageSwitcher onClose={() => setIsLanguageMenuOpen(false)} />
+                </div>
               )}
             </div>
             
@@ -83,7 +111,7 @@ const Navbar: React.FC = () => {
                   className="px-3 py-2 text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition duration-300"
                 >
                   <User className="w-5 h-5 inline-block mr-1 rtl:ml-1 rtl:mr-0" />
-                  {t('Profile')}
+                  {t('navbar.dashboard')}
                 </Link>
                 <button
                   onClick={handleLogout}
@@ -140,16 +168,24 @@ const Navbar: React.FC = () => {
               {t('navbar.home')}
             </Link>
             
-            <button
-              onClick={() => {
-                toggleLanguageMenu();
-                setIsMenuOpen(false);
-              }}
-              className="w-full text-left rtl:text-right flex items-center px-3 py-2 text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition duration-300"
-            >
-              <Globe className="w-5 h-5 mr-1 rtl:ml-1 rtl:mr-0" />
-              {t('navbar.language')}
-            </button>
+            <div className="relative">
+              <button
+                onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
+                className="w-full text-left rtl:text-right flex items-center px-3 py-2 text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition duration-300"
+              >
+                <Globe className="w-5 h-5 mr-1 rtl:ml-1 rtl:mr-0" />
+                {t('navbar.language')}
+              </button>
+              
+              {isLanguageMenuOpen && (
+                <div className="mt-1 ml-4">
+                  <LanguageSwitcher onClose={() => {
+                    setIsLanguageMenuOpen(false);
+                    setIsMenuOpen(false);
+                  }} />
+                </div>
+              )}
+            </div>
             
             <button
               onClick={() => {

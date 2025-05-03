@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Calendar, Clock, Users, MapPin, DollarSign, Search } from 'lucide-react';
+import { Car, Hotel, Utensils, Sailboat } from 'lucide-react';
 import AiAssistant from '../components/AiAssistant';
 import { useAuth } from '../context/AuthContext';
 
@@ -182,9 +183,7 @@ const BookingPage: React.FC = () => {
                     : 'bg-blue-800 bg-opacity-30 hover:bg-opacity-40 text-white'
                 }`}
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
+                <Hotel className="h-7 w-9 mr-4"/>
                 {t('categories.hotels')}
               </a>
               <a 
@@ -195,9 +194,7 @@ const BookingPage: React.FC = () => {
                     : 'bg-blue-800 bg-opacity-30 hover:bg-opacity-40 text-white'
                 }`}
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+                <Utensils className="h-7 w-9 mr-4"/>
                 {t('categories.restaurants')}
               </a>
               <a 
@@ -208,9 +205,7 @@ const BookingPage: React.FC = () => {
                     : 'bg-blue-800 bg-opacity-30 hover:bg-opacity-40 text-white'
                 }`}
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+                <Sailboat className="h-7 w-9 mr-4"/>
                 {t('categories.activities')}
               </a>
               <a 
@@ -221,9 +216,7 @@ const BookingPage: React.FC = () => {
                     : 'bg-blue-800 bg-opacity-30 hover:bg-opacity-40 text-white'
                 }`}
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-                </svg>
+                <Car className="h-12 w-9 mr-4"/>
                 {t('categories.cars')}
               </a>
             </div>
@@ -232,6 +225,7 @@ const BookingPage: React.FC = () => {
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
         {/* Filters */}
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
           <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">
@@ -350,6 +344,7 @@ const BookingPage: React.FC = () => {
           </div>
         </div>
         
+        
         {/* Results */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {items.map((item) => (
@@ -362,6 +357,117 @@ const BookingPage: React.FC = () => {
           ))}
         </div>
       </div>
+      
+          {/* Affichage conditionnel de la liste marocaine pour les hôtels */}
+        {currentType === 'hotels' && (
+          <div className="mb-8 p-5">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
+                Découvrez votre expérience marocaine
+              </h2>
+            </div>
+            <div className="relative">
+              {/* Bouton flèche gauche */}
+              <button 
+                className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white dark:bg-gray-800 rounded-full p-2 shadow-md z-10 hover:bg-gray-100 dark:hover:bg-gray-700"
+                onClick={() => {
+                  const container = document.getElementById('moroccan-categories');
+                  if (container) {
+                    container.scrollBy({ left: -300, behavior: 'smooth' });
+                  }
+                }}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              
+              {/* Container avec overflow hidden au lieu de overflow-x-auto */}
+              <div id="moroccan-categories" className="flex gap-4 pb-4 overflow-hidden scroll-smooth" style={{ scrollBehavior: 'smooth' }}>
+                {/* Séjours chez l'habitant */}
+                <div className="min-w-[220px] flex-shrink-0 bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308" alt="Chez l'habitant" className="h-36 w-full object-cover"/>
+                  <div className="p-4">
+                    <div className="font-semibold text-lg mb-1">🏡 Chez l'habitant</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-300 mb-2">تجربة إنسانية، أكل دار، تقاليد مغربية</div>
+                    <div className="text-xs text-blue-700 dark:text-blue-300 mb-2">"عِش التجربة المغربية الأصلية"</div>
+                    <div className="text-xs text-gray-500">Choisissez la famille, apprenez la cuisine, la langue...</div>
+                  </div>
+                </div>
+                
+                {/* Bivouacs & Campements */}
+                <div className="min-w-[220px] flex-shrink-0 bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Bivouacs" className="h-36 w-full object-cover"/>
+                  <div className="p-4">
+                    <div className="font-semibold text-lg mb-1">🏕️ Bivouacs & Campements</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-300 mb-2">عيش المغامرة وسط النجوم، جِمال، نار تقليدية</div>
+                    <div className="text-xs text-blue-700 dark:text-blue-300 mb-2">"Escape urbaine نحو الهدوء"</div>
+                    <div className="text-xs text-gray-500">Nombre de nuits, région: مرزوكة، زاكورة...</div>
+                  </div>
+                </div>
+                
+                {/* Boutique Hôtels / Riads */}
+                <div className="min-w-[220px] flex-shrink-0 bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b" alt="Riads" className="h-36 w-full object-cover"/>
+                  <div className="p-4">
+                    <div className="font-semibold text-lg mb-1">🏨 Boutique Hôtels / Riads</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-300 mb-2">تقاليد + رفاهية + ديكور مغربي</div>
+                    <div className="text-xs text-blue-700 dark:text-blue-300 mb-2">"فخامة وسط المدينة القديمة"</div>
+                    <div className="text-xs text-gray-500">Vidéos, avis, architecture...</div>
+                  </div>
+                </div>
+                
+                {/* Écolodges / Séjours nature */}
+                <div className="min-w-[220px] flex-shrink-0 bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429" alt="Écolodges" className="h-36 w-full object-cover"/>
+                  <div className="p-4">
+                    <div className="font-semibold text-lg mb-1">🌿 Écolodges / Nature</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-300 mb-2">سياحة بيئية، واحات، غابات</div>
+                    <div className="text-xs text-blue-700 dark:text-blue-300 mb-2">"راحة البال، احترام الطبيعة"</div>
+                    <div className="text-xs text-gray-500">Carte écologique, options sans plastique...</div>
+                  </div>
+                </div>
+                
+                {/* Séjours thématiques */}
+                <div className="min-w-[220px] flex-shrink-0 bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba" alt="Thématiques" className="h-36 w-full object-cover"/>
+                  <div className="p-4">
+                    <div className="font-semibold text-lg mb-1">🧳 Séjours thématiques</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-300 mb-2">طبخ، يوغا، تربية نحل، تصوير...</div>
+                    <div className="text-xs text-blue-700 dark:text-blue-300 mb-2">"جرب شغف جديد مع إقامتك"</div>
+                    <div className="text-xs text-gray-500">Choisissez l'activité, durée, lieu...</div>
+                  </div>
+                </div>
+                
+                {/* Kasbahs & logements historiques */}
+                <div className="min-w-[220px] flex-shrink-0 bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9" alt="Kasbahs" className="h-36 w-full object-cover"/>
+                  <div className="p-4">
+                    <div className="font-semibold text-lg mb-1">🏞️ Kasbahs & Historiques</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-300 mb-2">نمط الحياة القديم، أسوار طينية، تاريخ</div>
+                    <div className="text-xs text-blue-700 dark:text-blue-300 mb-2">"سافر عبر الزمن، نام داخل قصة"</div>
+                    <div className="text-xs text-gray-500">Découvrez l'histoire avant de réserver</div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Bouton flèche droite */}
+              <button 
+                className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white dark:bg-gray-800 rounded-full p-2 shadow-md z-10 hover:bg-gray-100 dark:hover:bg-gray-700"
+                onClick={() => {
+                  const container = document.getElementById('moroccan-categories');
+                  if (container) {
+                    container.scrollBy({ left: 300, behavior: 'smooth' });
+                  }
+                }}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        )}
       
       {/* Booking Modal */}
       {showBookingModal && selectedItem && (

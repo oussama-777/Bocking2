@@ -3,10 +3,10 @@ import { Routes, Route, NavLink, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { User, Calendar, CreditCard, Settings, LogOut } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
-import BookingsTab from '../components/dashboard/BookingsTab';
-import ProfileTab from '../components/dashboard/ProfileTab';
-import PaymentTab from '../components/dashboard/PaymentTab';
-import SettingsTab from '../components/dashboard/SettingsTab';
+import BookingsTab from '../components/Profils/BookingsTab';
+import ProfileTab from '../components/Profils/ProfileTab';
+import PaymentTab from '../components/Profils/PaymentTab';
+import SettingsTab from '../components/Profils/SettingsTab';
 
 const Dashboard: React.FC = () => {
   const { t } = useTranslation();
@@ -50,10 +50,12 @@ const Dashboard: React.FC = () => {
           <aside className={`${isMobileMenuOpen ? 'block' : 'hidden'} md:block md:w-64 bg-white dark:bg-gray-900 rounded-lg shadow-md`}>
             <div className="p-6">
               <div className="flex items-center space-x-4 rtl:space-x-reverse mb-6">
-                <div className="h-12 w-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center">
-                  <span className="text-xl font-bold text-blue-600 dark:text-blue-300">
-                    {user?.name?.charAt(0).toUpperCase() || 'U'}
-                  </span>
+                <div className="h-12 w-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center overflow-hidden">
+                  <img 
+                    src="/assets/images/default-profile.png" 
+                    alt={user?.name || 'User'} 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-800 dark:text-white">{user?.name || 'User'}</h3>

@@ -137,29 +137,9 @@ const BookingsTab: React.FC = () => {
                     </div>
                   </div>
                   
-                  <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700 flex flex-wrap justify-between items-center">
+                  <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
                     <div className="font-medium text-gray-800 dark:text-white">
                       {t('dashboard.bookings.total')}: ${booking.price}
-                    </div>
-                    
-                    <div className="mt-4 sm:mt-0 space-x-2 rtl:space-x-reverse">
-                      {booking.status !== 'cancelled' && (
-                        <button className="px-4 py-2 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-600 transition duration-300">
-                          {t('dashboard.bookings.modify')}
-                        </button>
-                      )}
-                      
-                      {booking.status === 'confirmed' && (
-                        <button className="px-4 py-2 bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-200 rounded hover:bg-red-200 dark:hover:bg-red-800 transition duration-300">
-                          {t('dashboard.bookings.cancel')}
-                        </button>
-                      )}
-                      
-                      {booking.status === 'pending' && (
-                        <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition duration-300">
-                          {t('dashboard.bookings.confirm')}
-                        </button>
-                      )}
                     </div>
                   </div>
                 </div>

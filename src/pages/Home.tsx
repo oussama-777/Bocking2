@@ -12,7 +12,7 @@ const demoData = {
     { id: 1, name: 'Economy Sedan', price: 40, image: 'https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg', location: 'Downtown', rating: 4.7, reviews: 124 },
     { id: 2, name: 'SUV Premium', price: 75, image: 'https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg', location: 'Airport', rating: 4.9, reviews: 86 },
   ],
-  hotels: [
+  stays: [
     { id: 1, name: 'Grand Hotel', price: 120, image: 'https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg', location: 'Downtown', rating: 4.8, reviews: 345 },
     { id: 2, name: 'Seaside Resort', price: 210, image: 'https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg', location: 'Beachfront', rating: 4.9, reviews: 267 },
   ],
@@ -40,7 +40,7 @@ const Home: React.FC = () => {
   // Obtenir 1 élément aléatoire de chaque catégorie
   const randomItems = [
     ...getRandomItems(demoData.cars, 1),
-    ...getRandomItems(demoData.hotels, 1),
+    ...getRandomItems(demoData.stays, 1),
     ...getRandomItems(demoData.restaurants, 1),
     ...getRandomItems(demoData.activities, 1)
   ];
