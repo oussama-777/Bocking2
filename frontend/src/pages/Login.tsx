@@ -1,19 +1,49 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../context/AuthContext';
+
+// Define User interface to match what's returned from AuthContext
+interface User {
+  id: string;
+  name?: string;
+  email: string;
+  role?: string;
+}
+
+// Define types for better type safety
+interface LocationState {
+  registrationSuccess?: boolean;
+  email?: string;
+}
+
+interface LoginResponse {
+  token: string;
+  user: User;
+}
 
 const Login: React.FC = () => {
   const { t } = useTranslation();
   const { login } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
   
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
   const [error, setError] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
   const [loading, setLoading] = useState(false);
+  
+  // Check if user was redirected from signup page
+  useEffect(() => {
+    const state = location.state as LocationState;
+    if (state && state.registrationSuccess) {
+      setSuccessMessage(t('login.registrationSuccess') || 'Registration successful! Please log in with your credentials.');
+      setFormData(prev => ({ ...prev, email: state.email || '' }));
+    }
+  }, [location, t]);
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -23,14 +53,22 @@ const Login: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+    setSuccessMessage('');
     setLoading(true);
     
     try {
-      // For demo purposes, we'll use a mock login
-      // In a real app, this would be an API call
       if (formData.email && formData.password) {
-        await login(formData.email, formData.password);
-        navigate('/dashboard');
+        const userData = await login(formData.email, formData.password) as LoginResponse;
+        
+        // Log the user data to see what's coming back
+        console.log('Login response:', userData);
+        
+        // Check if the user has admin role
+        if (userData && userData.user && userData.user.role === 'admin') {
+          navigate('/admin');
+        } else {
+          navigate('/dashboard');
+        }
       } else {
         throw new Error(t('login.error.fieldsRequired'));
       }
@@ -41,6 +79,13 @@ const Login: React.FC = () => {
     }
   };
   
+  const handleSocialLogin = (provider: string) => {
+    // This would be implemented to handle social login
+    console.log(`Login with ${provider}`);
+    // For now, just show an alert
+    alert(`${provider} login is not implemented yet`);
+  };
+  
   return (
     <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-md w-full space-y-8 bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">
@@ -49,6 +94,12 @@ const Login: React.FC = () => {
             {t('login.title')}
           </h2>
         </div>
+        
+        {successMessage && (
+          <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+            <span className="block sm:inline">{successMessage}</span>
+          </div>
+        )}
         
         {error && (
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
@@ -153,6 +204,7 @@ const Login: React.FC = () => {
           <div className="mt-6 grid grid-cols-2 gap-3">
             <button
               type="button"
+              onClick={() => handleSocialLogin('Facebook')}
               className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm bg-white dark:bg-gray-700 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
@@ -161,6 +213,7 @@ const Login: React.FC = () => {
             </button>
             <button
               type="button"
+              onClick={() => handleSocialLogin('Google')}
               className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm bg-white dark:bg-gray-700 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">

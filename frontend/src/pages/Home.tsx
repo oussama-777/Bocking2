@@ -9,28 +9,40 @@ import { MapPin } from 'lucide-react';
 // Données de démonstration (normalement importées de BookingPage.tsx)
 const demoData = {
   cars: [
-    { id: 1, name: 'Economy Sedan', price: 40, image: 'https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg', location: 'Downtown', rating: 4.7, reviews: 124 },
-    { id: 2, name: 'SUV Premium', price: 75, image: 'https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg', location: 'Airport', rating: 4.9, reviews: 86 },
+    { id: 1, name: 'Economy Sedan', price: 40, image: 'https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg', location: 'Downtown', rating: 4.7, reviews: 124, type: 'cars' },
+    { id: 2, name: 'SUV Premium', price: 75, image: 'https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg', location: 'Airport', rating: 4.9, reviews: 86, type: 'cars' },
   ],
   stays: [
-    { id: 1, name: 'Grand Hotel', price: 120, image: 'https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg', location: 'Downtown', rating: 4.8, reviews: 345 },
-    { id: 2, name: 'Seaside Resort', price: 210, image: 'https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg', location: 'Beachfront', rating: 4.9, reviews: 267 },
+    { id: 1, name: 'Grand Hotel', price: 120, image: 'https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg', location: 'Downtown', rating: 4.8, reviews: 345, type: 'hotels' },
+    { id: 2, name: 'Seaside Resort', price: 210, image: 'https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg', location: 'Beachfront', rating: 4.9, reviews: 267, type: 'hotels' },
   ],
   restaurants: [
-    { id: 1, name: 'Italian Bistro', price: 2, image: 'https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg', location: 'Downtown', rating: 4.6, reviews: 287 },
-    { id: 2, name: 'Sushi Place', price: 3, image: 'https://images.pexels.com/photos/5908255/pexels-photo-5908255.jpeg', location: 'Marina District', rating: 4.8, reviews: 156 },
+    { id: 1, name: 'Italian Bistro', price: 2, image: 'https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg', location: 'Downtown', rating: 4.6, reviews: 287, type: 'restaurants' },
+    { id: 2, name: 'Sushi Place', price: 3, image: 'https://images.pexels.com/photos/5908255/pexels-photo-5908255.jpeg', location: 'Marina District', rating: 4.8, reviews: 156, type: 'restaurants' },
   ],
   activities: [
-    { id: 1, name: 'City Tour', price: 45, image: 'https://images.pexels.com/photos/2129796/pexels-photo-2129796.png', location: 'City Center', rating: 4.7, reviews: 189 },
-    { id: 2, name: 'Hiking Adventure', price: 60, image: 'https://images.pexels.com/photos/2041759/pexels-photo-2041759.jpeg', location: 'Mountain Trail', rating: 4.9, reviews: 127 },
+    { id: 1, name: 'City Tour', price: 45, image: 'https://images.pexels.com/photos/2129796/pexels-photo-2129796.png', location: 'City Center', rating: 4.7, reviews: 189, type: 'activities' },
+    { id: 2, name: 'Hiking Adventure', price: 60, image: 'https://images.pexels.com/photos/2041759/pexels-photo-2041759.jpeg', location: 'Mountain Trail', rating: 4.9, reviews: 127, type: 'activities' },
   ],
 };
 
 // Fonction pour obtenir des éléments aléatoires
-const getRandomItems = (data: any[], count: number) => {
+const getRandomItems = (data: Item[], count: number) => {
   const shuffled = [...data].sort(() => 0.5 - Math.random());
   return shuffled.slice(0, count);
 };
+
+// Define a type for the items
+interface Item {
+  id: number;
+  name: string;
+  price: number;
+  image: string;
+  location: string;
+  rating: number;
+  reviews: number;
+  type: string;
+}
 
 const Home: React.FC = () => {
   const { t } = useTranslation();
@@ -45,24 +57,51 @@ const Home: React.FC = () => {
     ...getRandomItems(demoData.activities, 1)
   ];
 
+  // Helper function to determine item type - now using the type property
+  const getItemType = (item: Item) => {
+    return item.type;
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative text-white py-20 h-[350px] overflow-hidden">
         <img 
-          src={`/src/Morocco Way/${theme === 'dark' ? '2' : '1'}.svg`}
+          src="/src/images/Morocco-Culture.jpg" 
           alt="Morocco Way Background" 
-          className="absolute inset-0 w-full h-full object-cover opacity-100"
+          className="absolute inset-0 w-full h-full object-cover opacity-90"
           style={{
             width: '100vw',
             height: '100%',
             objectPosition: 'center'
           }}
         />
-        {/* Overlay avec gradient */}
+        {/* Overlay with gradient */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/60 to-blue-600/30"></div>
+        
+        
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative h-full flex flex-col justify-center">
-          
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            {t('home.hero.title', 'Book Your Next Adventure')}
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+            {t('home.hero.subtitle', 'Find the perfect car, hotel, restaurant, or activity for your journey')}
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button 
+              onClick={() => navigate('/booking/hotels')}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-medium transition duration-300"
+            >
+              {t('home.hero.bookNow', 'Book Now')}
+            </button>
+            <button 
+              onClick={() => navigate('/learn-more')}
+              className="bg-white hover:bg-gray-100 text-blue-600 px-6 py-3 rounded-md font-medium transition duration-300"
+            >
+              {t('home.hero.learnMore', 'Learn More')}
+            </button>
+          </div>
         </div>
       </section>
 
@@ -91,7 +130,8 @@ const Home: React.FC = () => {
           />
         </div>
       </section>
-            {/* Section Sélections Aléatoires */}
+      
+      {/* Section Sélections Aléatoires */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pb-8">
         <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-12">
           {t('home.randomSelections', 'Nos meilleures sélections')}
@@ -115,9 +155,7 @@ const Home: React.FC = () => {
                 <div className="mt-2 flex justify-between items-center">
                   <span className="text-blue-600 dark:text-blue-400 font-medium">${item.price}</span>
                   <button 
-                    onClick={() => navigate(`/booking/${item.hasOwnProperty('rooms') ? 'hotels' : 
-                                          item.hasOwnProperty('cuisine') ? 'restaurants' : 
-                                          item.hasOwnProperty('fuel') ? 'cars' : 'activities'}`)}
+                    onClick={() => navigate(`/booking/${getItemType(item)}`)}
                     className="text-sm text-white bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded transition"
                   >
                     {t('home.viewMore', 'Voir plus')}
@@ -133,7 +171,6 @@ const Home: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="border-t border-gray-200 dark:border-gray-700"></div>
       </div>
-
 
       {/* Features Section */}
       <section className="bg-gray-100 dark:bg-gray-800 py-16">

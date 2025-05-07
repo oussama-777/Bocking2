@@ -34,11 +34,11 @@ const SignUp: React.FC = () => {
     setLoading(true);
     
     try {
-      // For demo purposes, we'll use a mock registration
-      // In a real app, this would be an API call
+      // Connect to the real backend API
       if (formData.name && formData.email && formData.password) {
         await register(formData.name, formData.email, formData.password);
-        navigate('/dashboard');
+        // Redirect to login page instead of dashboard
+        navigate('/login', { state: { registrationSuccess: true, email: formData.email } });
       } else {
         throw new Error(t('signup.error.fieldsRequired'));
       }

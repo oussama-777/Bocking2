@@ -10,6 +10,8 @@ import Dashboard from './pages/Dashboard';
 import BookingPage from './pages/BookingPage';
 import NotFound from './pages/NotFound';
 import AdminDashboard from './pages/AdminDashboard';
+import MoroccoWay from './pages/MoroccoWay';
+import LearnMore from './pages/LearnMore';
 
 // Components
 import Navbar from './components/Navbar';
@@ -44,6 +46,8 @@ function App() {
             <main className="flex-grow">
               <Routes>
                 <Route path="/" element={<Home />} />
+                {/* Add the new route */}
+                <Route path="/learn-more" element={<LearnMore />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/booking/:type" element={<BookingPage />} />
@@ -58,11 +62,12 @@ function App() {
                 <Route
                   path="/admin/*"
                   element={
-                    <ProtectedRoute>
+                    <ProtectedRoute adminOnly={true}>
                       <AdminDashboard />
                     </ProtectedRoute>
                   }
                 />
+                <Route path="/morocco" element={<MoroccoWay />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </main>
