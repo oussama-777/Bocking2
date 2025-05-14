@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Routes, Route, NavLink, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { 
-  Users, 
   ShoppingBag, 
   Calendar, 
   BarChart, 
@@ -13,7 +12,6 @@ import {
 import { useAuth } from '../context/AuthContext';
 
 // Import Admin Dashboard Tabs
-import UsersTab from '../components/Admin/UsersTab';
 import ProductsTab from '../components/Admin/ProductsTab';
 import BookingsTab from '../components/Admin/BookingsTab';
 import AnalyticsTab from '../components/Admin/AnalyticsTab';
@@ -81,21 +79,7 @@ const AdminDashboard: React.FC = () => {
               </div>
               
               <nav className="space-y-1">
-                <NavLink
-                  to="/admin"
-                  end
-                  className={({ isActive }) =>
-                    `flex items-center px-4 py-2 text-sm font-medium rounded-md ${
-                      isActive
-                        ? 'bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200'
-                        : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
-                    }`
-                  }
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  <Users className="mr-3 rtl:ml-3 rtl:mr-0 h-5 w-5" />
-                  {t('admin.nav.users', 'Users')}
-                </NavLink>
+                
                 
                 <NavLink
                   to="/admin/products"
@@ -117,7 +101,7 @@ const AdminDashboard: React.FC = () => {
                   className={({ isActive }) =>
                     `flex items-center px-4 py-2 text-sm font-medium rounded-md ${
                       isActive
-                        ? 'bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200'
+                        ? 'bg-blue-100 dark:bg-blue-900 text-blue-70l0 dark:text-blue-200'
                         : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                     }`
                   }
@@ -186,7 +170,6 @@ const AdminDashboard: React.FC = () => {
           {/* Main content */}
           <main className="flex-1 bg-white dark:bg-gray-900 rounded-lg shadow-md p-6">
             <Routes>
-              <Route path="/" element={<UsersTab />} />
               <Route path="/products" element={<ProductsTab />} />
               <Route path="/bookings" element={<BookingsTab />} />
               <Route path="/analytics" element={<AnalyticsTab />} />

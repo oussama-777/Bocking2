@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Edit, Trash2, Tag } from 'lucide-react';
+import { Edit, Trash2, Tag, Plus, Upload } from 'lucide-react';
 
 // Mock data for products
 const mockProducts = [
@@ -46,10 +46,58 @@ const mockProducts = [
   },
 ];
 
+// Interface pour le type d'hôtel
+interface Hotel {
+  id: number;
+  name: string;
+  description: string;
+  address: string;
+  region: string;
+  pricePerNight: number;
+  category: string;
+  photos: string[];
+  amenities: string[];
+  roomTypes: string[];
+  totalRooms: number;
+  cancellationPolicy: string;
+  checkIn: string;
+  checkOut: string;
+  contact: string;
+  location: {
+    lat: number;
+    lng: number;
+  };
+  languages: string[];
+  status: string;
+  featured: boolean;
+  createdAt: string;
+}
+
 const ProductsTab: React.FC = () => {
   const { t } = useTranslation();
   const [products, setProducts] = useState(mockProducts);
   const [categoryFilter, setCategoryFilter] = useState('All');
+  const [isAddProductModalOpen, setIsAddProductModalOpen] = useState(false);
+  const [newHotel, setNewHotel] = useState<Partial<Hotel>>({
+    name: '',
+    description: '',
+    address: '',
+    region: '',
+    pricePerNight: 0,
+    category: '',
+    photos: [],
+    amenities: [],
+    roomTypes: [],
+    totalRooms: 0,
+    cancellationPolicy: '',
+    checkIn: '',
+    checkOut: '',
+    contact: '',
+    location: { lat: 0, lng: 0 },
+    languages: [],
+    status: 'Active',
+    featured: false
+  });
   
   // Get unique categories for filter
   const categories = ['All', ...new Set(products.map(product => product.category))];
@@ -78,17 +126,115 @@ const ProductsTab: React.FC = () => {
     ));
   };
   
+  const handleAddProduct = () => {
+    setIsAddProductModalOpen(true);
+  };
+  
+  const handleCloseModal = () => {
+    setIsAddProductModalOpen(false);
+    setNewHotel({
+      name: '',
+      description: '',
+      address: '',
+      region: '',
+      pricePerNight: 0,
+      category: '',
+      photos: [],
+      amenities: [],
+      roomTypes: [],
+      totalRooms: 0,
+      cancellationPolicy: '',
+      checkIn: '',
+      checkOut: '',
+      contact: '',
+      location: { lat: 0, lng: 0 },
+      languages: [],
+      status: 'Active',
+      featured: false
+    });
+  };
+  
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value, type } = e.target as HTMLInputElement;
+    
+    if (type === 'checkbox') {
+      const checked = (e.target as HTMLInputElement).checked;
+      setNewHotel(prev => ({ ...prev, [name]: checked }));
+    } else if (name === 'pricePerNight' || name === 'totalRooms') {
+      setNewHotel(prev => ({ ...prev, [name]: parseFloat(value) || 0 }));
+    } else if (name === 'amenities' || name === 'languages') {
+      const isChecked = (e.target as HTMLInputElement).checked;
+      const amenityValue = (e.target as HTMLInputElement).value;
+      
+      setNewHotel(prev => {
+        const currentArray = prev[name as keyof typeof prev] as string[] || [];
+        if (isChecked) {
+          return { ...prev, [name]: [...currentArray, amenityValue] };
+        } else {
+          return { ...prev, [name]: currentArray.filter(item => item !== amenityValue) };
+        }
+      });
+    } else if (name === 'roomTypes') {
+      // Séparation des types de chambres par virgule
+      const roomTypesArray = value.split(',').map(type => type.trim());
+      setNewHotel(prev => ({ ...prev, [name]: roomTypesArray }));
+    } else {
+      setNewHotel(prev => ({ ...prev, [name]: value }));
+    }
+  };
+  
+  const handlePhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (files && files.length > 0) {
+      // Dans une application réelle, vous téléchargeriez ces fichiers sur un serveur
+      // Ici, nous simulons simplement en stockant les noms des fichiers
+      const fileNames = Array.from(files).map(file => file.name);
+      setNewHotel(prev => ({
+        ...prev,
+        photos: [...(prev.photos || []), ...fileNames]
+      }));
+    }
+  };
+  
+  const handleSubmitProduct = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Dans une application réelle, ceci appellerait une API pour ajouter l'hôtel
+    const newProductWithId = {
+      ...newHotel,
+      id: Math.max(...products.map(p => p.id)) + 1,
+      createdAt: new Date().toISOString()
+    };
+    
+    // Conversion pour correspondre au format existant des produits
+    const formattedProduct = {
+      id: newProductWithId.id,
+      name: newProductWithId.name,
+      category: newProductWithId.category,
+      price: newProductWithId.pricePerNight,
+      inventoryCount: newProductWithId.totalRooms,
+      status: newProductWithId.status,
+      featured: newProductWithId.featured,
+      createdAt: newProductWithId.createdAt
+    };
+    
+    setProducts(prevProducts => [...prevProducts, formattedProduct]);
+    handleCloseModal();
+  };
+  
   return (
     <div>
       <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">
-        {t('admin.products.title', 'Products Management')}
+        {t('admin.products.title', 'Gestion des Hôtels')}
       </h2>
       
       <div className="flex justify-between items-center mb-6">
         <button
-          className="px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition duration-300"
+          onClick={handleAddProduct}
+          className="px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition duration-300 flex items-center"
         >
-          {t('admin.products.addNew', 'Add New Product')}
+          <Plus className="w-4 h-4 mr-2" />
+          {t('admin.products.addNew', 'Ajouter un Nouvel Hôtel')}
         </button>
         
         <div className="flex space-x-2 rtl:space-x-reverse">
