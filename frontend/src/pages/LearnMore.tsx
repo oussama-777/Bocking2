@@ -30,7 +30,7 @@ const LearnMore: React.FC = () => {
           }}
         />
         {/* Overlay with gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/60 to-blue-600/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#144122]/60 to-green-600/30"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative h-full flex flex-col justify-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
@@ -50,8 +50,8 @@ const LearnMore: React.FC = () => {
             {/* Step 1 */}
             <div className="flex flex-col md:flex-row gap-6">
               <div className="md:w-1/4 flex justify-center">
-                <div className="bg-blue-100 dark:bg-blue-900 rounded-full p-4 h-20 w-20 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-blue-600 dark:text-blue-300">1</span>
+                <div className="bg-green-100 dark:bg-[#144122] rounded-full p-4 h-20 w-20 flex items-center justify-center">
+                  <span className="text-2xl font-bold text-green-600 dark:text-green-300">1</span>
                 </div>
               </div>
               <div className="md:w-3/4">
@@ -67,8 +67,8 @@ const LearnMore: React.FC = () => {
             {/* Step 2 */}
             <div className="flex flex-col md:flex-row gap-6">
               <div className="md:w-1/4 flex justify-center">
-                <div className="bg-blue-100 dark:bg-blue-900 rounded-full p-4 h-20 w-20 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-blue-600 dark:text-blue-300">2</span>
+                <div className="bg-green-100 dark:bg-[#144122] rounded-full p-4 h-20 w-20 flex items-center justify-center">
+                  <span className="text-2xl font-bold text-green-600 dark:text-green-300">2</span>
                 </div>
               </div>
               <div className="md:w-3/4">
@@ -84,8 +84,8 @@ const LearnMore: React.FC = () => {
             {/* Step 3 */}
             <div className="flex flex-col md:flex-row gap-6">
               <div className="md:w-1/4 flex justify-center">
-                <div className="bg-blue-100 dark:bg-blue-900 rounded-full p-4 h-20 w-20 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-blue-600 dark:text-blue-300">3</span>
+                <div className="bg-green-100 dark:bg-[#144122] rounded-full p-4 h-20 w-20 flex items-center justify-center">
+                  <span className="text-2xl font-bold text-green-600 dark:text-green-300">3</span>
                 </div>
               </div>
               <div className="md:w-3/4">
@@ -101,8 +101,8 @@ const LearnMore: React.FC = () => {
             {/* Step 4 */}
             <div className="flex flex-col md:flex-row gap-6">
               <div className="md:w-1/4 flex justify-center">
-                <div className="bg-blue-100 dark:bg-blue-900 rounded-full p-4 h-20 w-20 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-blue-600 dark:text-blue-300">4</span>
+                <div className="bg-green-100 dark:bg-[#144122] rounded-full p-4 h-20 w-20 flex items-center justify-center">
+                  <span className="text-2xl font-bold text-green-600 dark:text-green-300">4</span>
                 </div>
               </div>
               <div className="md:w-3/4">
@@ -160,7 +160,7 @@ const LearnMore: React.FC = () => {
             </h2>
             <button 
               onClick={() => navigate('/')}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-medium transition duration-300"
+              className="bg-green-600 hover:bg-[#1a552c] text-white px-6 py-3 rounded-md font-medium transition duration-300"
             >
               {t('learnMore.exploreNow', 'Explore Now')}
             </button>

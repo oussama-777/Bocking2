@@ -77,7 +77,7 @@ const Home: React.FC = () => {
           }}
         />
         {/* Overlay with gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/60 to-blue-600/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#144122]/60 to-[#267c41]/30"></div>
         
         
         
@@ -91,13 +91,13 @@ const Home: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
               onClick={() => navigate('/booking/hotels')}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-medium transition duration-300"
+              className="bg-[#267c41] hover:bg-[#206836] text-white px-6 py-3 rounded-md font-medium transition duration-300"
             >
               {t('home.hero.bookNow', 'Book Now')}
             </button>
             <button 
               onClick={() => navigate('/learn-more')}
-              className="bg-white hover:bg-gray-100 text-blue-600 px-6 py-3 rounded-md font-medium transition duration-300"
+              className="bg-white hover:bg-gray-100 text-[#267c41] px-6 py-3 rounded-md font-medium transition duration-300"
             >
               {t('home.hero.learnMore', 'Learn More')}
             </button>
@@ -153,10 +153,10 @@ const Home: React.FC = () => {
                   <span className="text-sm">{item.location}</span>
                 </div>
                 <div className="mt-2 flex justify-between items-center">
-                  <span className="text-blue-600 dark:text-blue-400 font-medium">${item.price}</span>
+                  <span className="text-[#267c41] dark:text-green-400 font-medium">${item.price}</span>
                   <button 
                     onClick={() => navigate(`/booking/${getItemType(item)}`)}
-                    className="text-sm text-white bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded transition"
+                    className="text-sm text-white bg-[#267c41] hover:bg-green-700 px-3 py-1 rounded transition"
                   >
                     {t('home.viewMore', 'Voir plus')}
                   </button>
@@ -180,8 +180,8 @@ const Home: React.FC = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md text-center">
-              <div className="bg-blue-100 dark:bg-blue-900 rounded-full p-4 h-20 w-20 flex items-center justify-center mx-auto mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-blue-600 dark:text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="bg-green-100 dark:bg-[#144122] rounded-full p-4 h-20 w-20 flex items-center justify-center mx-auto mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-[#267c41] dark:text-green-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
@@ -193,8 +193,8 @@ const Home: React.FC = () => {
               </p>
             </div>
             <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md text-center">
-              <div className="bg-blue-100 dark:bg-blue-900 rounded-full p-4 h-20 w-20 flex items-center justify-center mx-auto mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-blue-600 dark:text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="bg-green-100 dark:bg-[#144122] rounded-full p-4 h-20 w-20 flex items-center justify-center mx-auto mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-[#267c41] dark:text-green-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
               </div>
@@ -206,8 +206,8 @@ const Home: React.FC = () => {
               </p>
             </div>
             <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md text-center">
-              <div className="bg-blue-100 dark:bg-blue-900 rounded-full p-4 h-20 w-20 flex items-center justify-center mx-auto mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-blue-600 dark:text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="bg-green-100 dark:bg-[#144122] rounded-full p-4 h-20 w-20 flex items-center justify-center mx-auto mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-[#267c41] dark:text-green-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
                 </svg>
               </div>
@@ -268,7 +268,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Newsletter Section */}
-      <section className="bg-blue-600 text-white py-16">
+      <section className="bg-[#267c41] text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-6">{t('home.newsletter.title')}</h2>
           <p className="text-xl max-w-3xl mx-auto mb-8">{t('home.newsletter.subtitle')}</p>
@@ -277,9 +277,9 @@ const Home: React.FC = () => {
               <input
                 type="email"
                 placeholder={t('home.newsletter.placeholder')}
-                className="flex-1 px-4 py-3 rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="flex-1 px-4 py-3 rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400"
               />
-              <button className="bg-white text-blue-600 px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition duration-300">
+              <button className="bg-white text-[#267c41] px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition duration-300">
                 {t('home.newsletter.button')}
               </button>
             </div>

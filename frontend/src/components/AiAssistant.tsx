@@ -6,6 +6,7 @@ interface AiAssistantProps {
   categoryType?: string;
 }
 
+
 const AiAssistant: React.FC<AiAssistantProps> = ({ categoryType }) => {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
@@ -76,7 +77,7 @@ const AiAssistant: React.FC<AiAssistantProps> = ({ categoryType }) => {
       {/* Chat button */}
       <button
         onClick={toggleChat}
-        className="fixed bottom-6 right-6 rtl:left-6 rtl:right-auto bg-blue-600 text-white rounded-full p-4 shadow-lg hover:bg-blue-700 transition-colors duration-300 z-50"
+        className="fixed bottom-6 right-6 rtl:left-6 rtl:right-auto bg-green-600 text-white rounded-full p-4 shadow-lg hover:bg-[#267c41] transition-colors duration-300 z-50"
         aria-label={t('ai.openChat')}
       >
         <MessageCircle className="h-6 w-6" />
@@ -86,7 +87,7 @@ const AiAssistant: React.FC<AiAssistantProps> = ({ categoryType }) => {
       {isOpen && (
         <div className="fixed bottom-24 right-6 rtl:left-6 rtl:right-auto w-80 sm:w-96 bg-white dark:bg-gray-800 rounded-lg shadow-xl z-50 flex flex-col max-h-[500px] border border-gray-200 dark:border-gray-700">
           {/* Chat header */}
-          <div className="bg-blue-600 text-white px-4 py-3 rounded-t-lg flex justify-between items-center">
+          <div className="bg-green-600 text-white px-4 py-3 rounded-t-lg flex justify-between items-center">
             <h3 className="font-medium">{t('ai.assistantName')}</h3>
             <button 
               onClick={toggleChat}
@@ -104,13 +105,13 @@ const AiAssistant: React.FC<AiAssistantProps> = ({ categoryType }) => {
                 key={index}
                 className={`${
                   msg.role === 'user'
-                    ? 'bg-blue-100 dark:bg-blue-900 ml-auto rtl:mr-auto rtl:ml-0'
+                    ? 'bg-green-100 dark:bg-[#144122] ml-auto rtl:mr-auto rtl:ml-0'
                     : 'bg-gray-100 dark:bg-gray-700 mr-auto rtl:ml-auto rtl:mr-0'
                 } rounded-lg px-4 py-2 max-w-[80%]`}
               >
                 <p className={`text-sm ${
                   msg.role === 'user'
-                    ? 'text-blue-900 dark:text-blue-100'
+                    ? 'text-[#144122] dark:text-green-100'
                     : 'text-gray-800 dark:text-gray-100'
                 }`}>
                   {msg.content}
@@ -135,7 +136,7 @@ const AiAssistant: React.FC<AiAssistantProps> = ({ categoryType }) => {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               onKeyDown={handleKeyDown}
-              className="flex-1 border border-gray-300 dark:border-gray-600 rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white resize-none"
+              className="flex-1 border border-gray-300 dark:border-gray-600 rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-green-500 dark:bg-gray-700 dark:text-white resize-none"
               placeholder={t('ai.typePlaceholder')}
               rows={1}
             />
@@ -144,7 +145,7 @@ const AiAssistant: React.FC<AiAssistantProps> = ({ categoryType }) => {
               disabled={!message.trim()}
               className={`ml-2 rtl:mr-2 rtl:ml-0 rounded-full p-2 ${
                 message.trim()
-                  ? 'bg-blue-600 hover:bg-blue-700 text-white'
+                  ? 'bg-green-600 hover:bg-[#267c41] text-white'
                   : 'bg-gray-200 dark:bg-gray-600 text-gray-400 dark:text-gray-300 cursor-not-allowed'
               } transition-colors duration-300`}
               aria-label={t('ai.send')}

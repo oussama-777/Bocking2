@@ -78,7 +78,7 @@ const BookingItem: React.FC<BookingItemProps> = ({ item, type, onBook }) => {
       <div className="p-4">
         <div className="flex justify-between items-start mb-2">
           <h3 className="text-lg font-semibold text-gray-800 dark:text-white">{item.name}</h3>
-          <div className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded text-sm font-medium">
+          <div className="bg-green-100 dark:bg-[#144122] text-[#1a552c] dark:text-green-200 px-2 py-1 rounded text-sm font-medium">
             {getPriceText()}
           </div>
         </div>
@@ -105,7 +105,7 @@ const BookingItem: React.FC<BookingItemProps> = ({ item, type, onBook }) => {
         </div>
         <button
           onClick={() => onBook(item)}
-          className="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition duration-300"
+          className="w-full py-2 px-4 bg-green-600 hover:bg-[#267c41] text-white font-medium rounded-md transition duration-300"
         >
           {t('booking.book')}
         </button>
@@ -168,7 +168,7 @@ const BookingPage: React.FC = () => {
   
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      <div className="bg-blue-900 py-8">
+      <div className="bg-[#144122] py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center">
             <div className="flex gap-6 justify-center">
@@ -176,8 +176,8 @@ const BookingPage: React.FC = () => {
                 href="/booking/hotels" 
                 className={`flex items-center px-6 py-3 rounded-lg transition duration-300 ${
                   currentType === 'hotels' 
-                    ? 'bg-white text-blue-800 font-medium shadow-md' 
-                    : 'bg-blue-800 bg-opacity-30 hover:bg-opacity-40 text-white'
+                    ? 'bg-white text-[#1a552c] font-medium shadow-md' 
+                    : 'bg-[#1a552c] bg-opacity-30 hover:bg-opacity-40 text-white'
                 }`}
               >
                 <Hotel className="h-7 w-9 mr-4"/>
@@ -187,8 +187,8 @@ const BookingPage: React.FC = () => {
                 href="/booking/restaurants" 
                 className={`flex items-center px-6 py-3 rounded-lg transition duration-300 ${
                   currentType === 'restaurants' 
-                    ? 'bg-white text-blue-800 font-medium shadow-md' 
-                    : 'bg-blue-800 bg-opacity-30 hover:bg-opacity-40 text-white'
+                    ? 'bg-white text-[#1a552c] font-medium shadow-md' 
+                    : 'bg-[#1a552c] bg-opacity-30 hover:bg-opacity-40 text-white'
                 }`}
               >
                 <Utensils className="h-7 w-9 mr-4"/>
@@ -198,8 +198,8 @@ const BookingPage: React.FC = () => {
                 href="/booking/activities" 
                 className={`flex items-center px-6 py-3 rounded-lg transition duration-300 ${
                   currentType === 'activities' 
-                    ? 'bg-white text-blue-800 font-medium shadow-md' 
-                    : 'bg-blue-800 bg-opacity-30 hover:bg-opacity-40 text-white'
+                    ? 'bg-white text-[#1a552c] font-medium shadow-md' 
+                    : 'bg-[#1a552c] bg-opacity-30 hover:bg-opacity-40 text-white'
                 }`}
               >
                 <Sailboat className="h-7 w-9 mr-4"/>
@@ -209,8 +209,8 @@ const BookingPage: React.FC = () => {
                 href="/booking/cars" 
                 className={`flex items-center px-6 py-3 rounded-lg transition duration-300 ${
                   currentType === 'cars' 
-                    ? 'bg-white text-blue-800 font-medium shadow-md' 
-                    : 'bg-blue-800 bg-opacity-30 hover:bg-opacity-40 text-white'
+                    ? 'bg-white text-[#1a552c] font-medium shadow-md' 
+                    : 'bg-[#1a552c] bg-opacity-30 hover:bg-opacity-40 text-white'
                 }`}
               >
                 <Car className="h-12 w-9 mr-4"/>
@@ -240,7 +240,7 @@ const BookingPage: React.FC = () => {
                   name="location"
                   value={filters.location}
                   onChange={handleFilterChange}
-                  className="pl-10 rtl:pr-10 rtl:pl-4 w-full py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                  className="pl-10 rtl:pr-10 rtl:pl-4 w-full py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 dark:bg-gray-700 dark:text-white"
                   placeholder={t('booking.enterLocation')}
                 />
               </div>
@@ -258,7 +258,7 @@ const BookingPage: React.FC = () => {
                     name="minPrice"
                     value={filters.minPrice}
                     onChange={handleFilterChange}
-                    className="pl-10 rtl:pr-10 rtl:pl-4 w-full py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                    className="pl-10 rtl:pr-10 rtl:pl-4 w-full py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 dark:bg-gray-700 dark:text-white"
                     placeholder="0"
                   />
                 </div>
@@ -274,7 +274,7 @@ const BookingPage: React.FC = () => {
                     name="maxPrice"
                     value={filters.maxPrice}
                     onChange={handleFilterChange}
-                    className="pl-10 rtl:pr-10 rtl:pl-4 w-full py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                    className="pl-10 rtl:pr-10 rtl:pl-4 w-full py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 dark:bg-gray-700 dark:text-white"
                     placeholder="1000"
                   />
                 </div>
@@ -292,7 +292,7 @@ const BookingPage: React.FC = () => {
                   name="date"
                   value={filters.date}
                   onChange={handleFilterChange}
-                  className="pl-10 rtl:pr-10 rtl:pl-4 w-full py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                  className="pl-10 rtl:pr-10 rtl:pl-4 w-full py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 dark:bg-gray-700 dark:text-white"
                 />
               </div>
             </div>
@@ -308,7 +308,7 @@ const BookingPage: React.FC = () => {
                   name="time"
                   value={filters.time}
                   onChange={handleFilterChange}
-                  className="pl-10 rtl:pr-10 rtl:pl-4 w-full py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                  className="pl-10 rtl:pr-10 rtl:pl-4 w-full py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 dark:bg-gray-700 dark:text-white"
                 />
               </div>
             </div>
@@ -323,7 +323,7 @@ const BookingPage: React.FC = () => {
                   name="people"
                   value={filters.people}
                   onChange={handleFilterChange}
-                  className="pl-10 rtl:pr-10 rtl:pl-4 w-full py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white appearance-none"
+                  className="pl-10 rtl:pr-10 rtl:pl-4 w-full py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 dark:bg-gray-700 dark:text-white appearance-none"
                 >
                   {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
                     <option key={num} value={num}>{num}</option>
@@ -333,7 +333,7 @@ const BookingPage: React.FC = () => {
             </div>
             
             <div className="md:col-span-2 lg:col-span-1 flex items-end">
-              <button className="w-full flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition duration-300">
+              <button className="w-full flex items-center justify-center bg-green-600 hover:bg-[#267c41] text-white py-2 px-4 rounded-md transition duration-300">
                 <Search className="mr-2 rtl:ml-2 rtl:mr-0" size={18} />
                 {t('booking.search')}
               </button>
@@ -382,7 +382,7 @@ const BookingPage: React.FC = () => {
               <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded-md">
                 <p className="font-medium text-gray-800 dark:text-white">{selectedItem.name}</p>
                 <p className="text-gray-600 dark:text-gray-300">{selectedItem.location}</p>
-                <p className="text-blue-600 dark:text-blue-400 font-medium mt-2">
+                <p className="text-green-600 dark:text-green-400 font-medium mt-2">
                   {(() => {
                     switch (currentType) {
                       case 'cars':
@@ -410,7 +410,7 @@ const BookingPage: React.FC = () => {
               </button>
               <button
                 onClick={confirmBooking}
-                className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+                className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-[#267c41]"
               >
                 {t('booking.confirm')}
               </button>

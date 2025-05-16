@@ -9,7 +9,7 @@ const NotFound: React.FC = () => {
   return (
     <div className="min-h-[70vh] flex flex-col items-center justify-center p-4">
       <div className="text-center">
-        <h1 className="text-9xl font-bold text-blue-600">404</h1>
+        <h1 className="text-9xl font-bold text-green-600">404</h1>
         <h2 className="text-3xl font-semibold text-gray-800 dark:text-white mt-4 mb-6">
           {t('notFound.title')}
         </h2>
@@ -18,7 +18,7 @@ const NotFound: React.FC = () => {
         </p>
         <Link
           to="/"
-          className="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition duration-300"
+          className="inline-flex items-center px-6 py-3 bg-green-600 hover:bg-[#1a552c] text-white font-medium rounded-md transition duration-300"
         >
           <Home className="mr-2 rtl:ml-2 rtl:mr-0" />
           {t('notFound.backHome')}

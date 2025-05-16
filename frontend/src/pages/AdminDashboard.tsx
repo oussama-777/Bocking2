@@ -60,7 +60,7 @@ const AdminDashboard: React.FC = () => {
           <aside className={`${isMobileMenuOpen ? 'block' : 'hidden'} md:block md:w-64 bg-white dark:bg-gray-900 rounded-lg shadow-md`}>
             <div className="p-6">
               <div className="flex items-center space-x-4 rtl:space-x-reverse mb-6">
-                <div className="h-12 w-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center overflow-hidden">
+                <div className="h-12 w-12 rounded-full bg-blue-100 dark:bg-[#144122] flex items-center justify-center overflow-hidden">
                   <img 
                     src="/assets/images/admin-profile.png" 
                     alt={user?.name || 'Admin'} 
@@ -70,7 +70,7 @@ const AdminDashboard: React.FC = () => {
                 <div>
                   <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
                     {user?.name || 'Admin'}
-                    <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
+                    <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800 dark:bg-#144122 dark:text-blue-200">
                       Admin
                     </span>
                   </h3>
@@ -86,7 +86,7 @@ const AdminDashboard: React.FC = () => {
                   className={({ isActive }) =>
                     `flex items-center px-4 py-2 text-sm font-medium rounded-md ${
                       isActive
-                        ? 'bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200'
+                        ? 'bg-blue-100 dark:bg-#144122 text-blue-700 dark:text-blue-200'
                         : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                     }`
                   }
@@ -101,7 +101,7 @@ const AdminDashboard: React.FC = () => {
                   className={({ isActive }) =>
                     `flex items-center px-4 py-2 text-sm font-medium rounded-md ${
                       isActive
-                        ? 'bg-blue-100 dark:bg-blue-900 text-blue-70l0 dark:text-blue-200'
+                        ? 'bg-blue-100 dark:bg-#144122 text-blue-70l0 dark:text-blue-200'
                         : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                     }`
                   }
@@ -116,7 +116,7 @@ const AdminDashboard: React.FC = () => {
                   className={({ isActive }) =>
                     `flex items-center px-4 py-2 text-sm font-medium rounded-md ${
                       isActive
-                        ? 'bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200'
+                        ? 'bg-blue-100 dark:bg-#144122 text-blue-700 dark:text-blue-200'
                         : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                     }`
                   }
@@ -131,7 +131,7 @@ const AdminDashboard: React.FC = () => {
                   className={({ isActive }) =>
                     `flex items-center px-4 py-2 text-sm font-medium rounded-md ${
                       isActive
-                        ? 'bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200'
+                        ? 'bg-blue-100 dark:bg-#144122 text-blue-700 dark:text-blue-200'
                         : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                     }`
                   }
@@ -146,7 +146,7 @@ const AdminDashboard: React.FC = () => {
                   className={({ isActive }) =>
                     `flex items-center px-4 py-2 text-sm font-medium rounded-md ${
                       isActive
-                        ? 'bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200'
+                        ? 'bg-blue-100 dark:bg-#144122 text-blue-700 dark:text-blue-200'
                         : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                     }`
                   }

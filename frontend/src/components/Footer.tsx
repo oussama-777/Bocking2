@@ -11,28 +11,28 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Column */}
           <div className="col-span-1">
-            <h2 className="text-2xl font-bold text-blue-400 mb-4">Op Way</h2>
+            <h2 className="text-2xl font-bold text-green-400 mb-4">Op Way</h2>
             <p className="mb-4 text-gray-300">
               {t('footer.tagline')}
             </p>
             <div className="flex space-x-4 rtl:space-x-reverse">
               <a 
                 href="#" 
-                className="text-gray-300 hover:text-blue-400 transition duration-300"
+                className="text-gray-300 hover:text-green-400 transition duration-300"
                 aria-label="Facebook"
               >
                 <Facebook className="h-6 w-6" />
               </a>
               <a 
                 href="#" 
-                className="text-gray-300 hover:text-blue-400 transition duration-300"
+                className="text-gray-300 hover:text-green-400 transition duration-300"
                 aria-label="Twitter"
               >
                 <Twitter className="h-6 w-6" />
               </a>
               <a 
                 href="#" 
-                className="text-gray-300 hover:text-blue-400 transition duration-300"
+                className="text-gray-300 hover:text-green-400 transition duration-300"
                 aria-label="Instagram"
               >
                 <Instagram className="h-6 w-6" />
@@ -47,7 +47,7 @@ const Footer: React.FC = () => {
               <li>
                 <a 
                   href="/booking/cars" 
-                  className="text-gray-300 hover:text-blue-400 transition duration-300"
+                  className="text-gray-300 hover:text-green-400 transition duration-300"
                 >
                   {t('categories.cars')}
                 </a>
@@ -55,7 +55,7 @@ const Footer: React.FC = () => {
               <li>
                 <a 
                   href="/booking/hotels" 
-                  className="text-gray-300 hover:text-blue-400 transition duration-300"
+                  className="text-gray-300 hover:text-green-400 transition duration-300"
                 >
                   {t('categories.hotels')}
                 </a>
@@ -63,7 +63,7 @@ const Footer: React.FC = () => {
               <li>
                 <a 
                   href="/booking/restaurants" 
-                  className="text-gray-300 hover:text-blue-400 transition duration-300"
+                  className="text-gray-300 hover:text-green-400 transition duration-300"
                 >
                   {t('categories.restaurants')}
                 </a>
@@ -71,7 +71,7 @@ const Footer: React.FC = () => {
               <li>
                 <a 
                   href="/booking/activities" 
-                  className="text-gray-300 hover:text-blue-400 transition duration-300"
+                  className="text-gray-300 hover:text-green-400 transition duration-300"
                 >
                   {t('categories.activities')}
                 </a>
@@ -86,7 +86,7 @@ const Footer: React.FC = () => {
               <li>
                 <a 
                   href="/about" 
-                  className="text-gray-300 hover:text-blue-400 transition duration-300"
+                  className="text-gray-300 hover:text-green-400 transition duration-300"
                 >
                   {t('footer.about')}
                 </a>
@@ -94,7 +94,7 @@ const Footer: React.FC = () => {
               <li>
                 <a 
                   href="/contact" 
-                  className="text-gray-300 hover:text-blue-400 transition duration-300"
+                  className="text-gray-300 hover:text-green-400 transition duration-300"
                 >
                   {t('footer.contact')}
                 </a>
@@ -102,7 +102,7 @@ const Footer: React.FC = () => {
               <li>
                 <a 
                   href="/terms" 
-                  className="text-gray-300 hover:text-blue-400 transition duration-300"
+                  className="text-gray-300 hover:text-green-400 transition duration-300"
                 >
                   {t('footer.terms')}
                 </a>
@@ -110,7 +110,7 @@ const Footer: React.FC = () => {
               <li>
                 <a 
                   href="/privacy" 
-                  className="text-gray-300 hover:text-blue-400 transition duration-300"
+                  className="text-gray-300 hover:text-green-400 transition duration-300"
                 >
                   {t('footer.privacy')}
                 </a>

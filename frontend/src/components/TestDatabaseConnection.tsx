@@ -29,8 +29,8 @@ const TestDatabaseConnection: React.FC = () => {
 
   return (
     <div className={`p-4 rounded-md ${
-      status === 'loading' ? 'bg-blue-100 text-blue-700' :
-      status === 'success' ? 'bg-green-100 text-green-700' :
+      status === 'loading' ? 'bg-green-100 text-green-700' :
+      status === 'success' ? 'bg-lime-100 text-lime-700' :
       'bg-red-100 text-red-700'
     }`}>
       <p className="font-medium">{message}</p>

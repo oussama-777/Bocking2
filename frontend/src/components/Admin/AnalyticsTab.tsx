@@ -143,8 +143,8 @@ const AnalyticsTab: React.FC = () => {
           </div>
           
           <div key="activity-2" className="flex items-start">
-            <div className="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center">
-              <span className="text-blue-600 font-medium">JS</span>
+            <div className="flex-shrink-0 h-10 w-10 rounded-full bg-green-100 flex items-center justify-center">
+              <span className="text-green-600 font-medium">JS</span>
             </div>
             <div className="ml-4">
               <p className="text-sm font-medium text-gray-900 dark:text-white">Jane Smith rented an Economy Car</p>

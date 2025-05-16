@@ -17,13 +17,13 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ type, title}) => {
   const renderIcon = () => {
     switch (type) {
       case 'cars':
-        return <Car className="h-12 w-12 text-blue-500 ml-10" />;
+        return <Car className="h-12 w-12 text-[#267c41] ml-10" />;
       case 'hotels':
-        return <Bed className="h-12 w-12 text-blue-500 ml-10" />;
+        return <Bed className="h-12 w-12 text-[#267c41] ml-10" />;
       case 'restaurants':
-        return <Utensils className="h-12 w-12 text-blue-500" />;
+        return <Utensils className="h-12 w-12 text-[#267c41]" />;
       case 'activities':
-        return <Sailboat className="h-12 w-12 text-blue-500" />;
+        return <Sailboat className="h-12 w-12 text-[#267c41]" />;
       default:
         return null;
     }
@@ -42,7 +42,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ type, title}) => {
           <h3 className="text-xl font-semibold text-gray-800 dark:text-white text-centre mr-10">{title}</h3>
         </div>
       </div>
-      <div className="bg-blue-500 py-3 px-4">
+      <div className="bg-[#267c41] py-3 px-4">
         <p className="text-white text-center font-medium">Explore</p>
       </div>
     </div>

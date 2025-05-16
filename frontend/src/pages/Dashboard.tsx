@@ -50,7 +50,7 @@ const Dashboard: React.FC = () => {
           <aside className={`${isMobileMenuOpen ? 'block' : 'hidden'} md:block md:w-64 bg-white dark:bg-gray-900 rounded-lg shadow-md`}>
             <div className="p-6">
               <div className="flex items-center space-x-4 rtl:space-x-reverse mb-6">
-                <div className="h-12 w-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center overflow-hidden">
+                <div className="h-12 w-12 rounded-full bg-green-100 dark:bg-[#144122] flex items-center justify-center overflow-hidden">
                   <img 
                     src="/assets/images/default-profile.png" 
                     alt={user?.name || 'User'} 
@@ -70,7 +70,7 @@ const Dashboard: React.FC = () => {
                   className={({ isActive }) =>
                     `flex items-center px-4 py-2 text-sm font-medium rounded-md ${
                       isActive
-                        ? 'bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200'
+                        ? 'bg-green-100 dark:bg-[#144122] text-[#1a552c] dark:text-green-200'
                         : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                     }`
                   }
@@ -85,7 +85,7 @@ const Dashboard: React.FC = () => {
                   className={({ isActive }) =>
                     `flex items-center px-4 py-2 text-sm font-medium rounded-md ${
                       isActive
-                        ? 'bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200'
+                        ? 'bg-green-100 dark:bg-[#144122] text-[#1a552c] dark:text-green-200'
                         : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                     }`
                   }
@@ -100,7 +100,7 @@ const Dashboard: React.FC = () => {
                   className={({ isActive }) =>
                     `flex items-center px-4 py-2 text-sm font-medium rounded-md ${
                       isActive
-                        ? 'bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200'
+                        ? 'bg-green-100 dark:bg-[#144122] text-[#1a552c] dark:text-green-200'
                         : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                     }`
                   }
@@ -115,7 +115,7 @@ const Dashboard: React.FC = () => {
                   className={({ isActive }) =>
                     `flex items-center px-4 py-2 text-sm font-medium rounded-md ${
                       isActive
-                        ? 'bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200'
+                        ? 'bg-green-100 dark:bg-[#144122] text-[#1a552c] dark:text-green-200'
                         : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                     }`
                   }

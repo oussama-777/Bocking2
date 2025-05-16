@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Edit, Trash2, Calendar, Check, X } from 'lucide-react';
 
+
 // Mock data for bookings
 const mockBookings = [
   {
@@ -151,7 +152,7 @@ const BookingsTab: React.FC = () => {
                   <td className="px-6 py-4 text-sm">
                     <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
                       booking.status === 'Confirmed'
-                        ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300'
+                        ? 'bg-green-100 text-[#267c41] dark:bg-[#144122] dark:text-green-300'
                         : booking.status === 'Pending'
                         ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300'
                         : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300'
@@ -171,7 +172,7 @@ const BookingsTab: React.FC = () => {
                         <>
                           <button
                             onClick={() => updateBookingStatus(booking.id, 'Confirmed')}
-                            className="text-green-600 hover:text-green-800 dark:text-green-400"
+                            className="text-green-600 hover:text-[#267c41] dark:text-green-400"
                             title={t('admin.bookings.confirm', 'Confirm')}
                           >
                             <Check className="w-4 h-4" />
@@ -187,7 +188,7 @@ const BookingsTab: React.FC = () => {
                       )}
                       <button
                         onClick={() => handleEditBooking(booking)}
-                        className="text-blue-600 hover:text-blue-800 dark:text-blue-400"
+                        className="text-green-600 hover:text-[#267c41] dark:text-green-400"
                       >
                         <Edit className="w-4 h-4" />
                       </button>

@@ -37,7 +37,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ onClose }) => {
           onClick={() => changeLanguage('en')}
           className={`flex w-full items-center px-4 py-2 text-sm ${
             i18n.language === 'en'
-              ? 'bg-blue-100 dark:bg-blue-900 text-blue-900 dark:text-blue-100'
+              ? 'bg-green-100 dark:bg[#144122] text[#144122] dark:text-green-100'
               : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'
           }`}
         >
@@ -47,7 +47,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ onClose }) => {
           onClick={() => changeLanguage('fr')}
           className={`flex w-full items-center px-4 py-2 text-sm ${
             i18n.language === 'fr'
-              ? 'bg-blue-100 dark:bg-blue-900 text-blue-900 dark:text-blue-100'
+              ? 'bg-green-100 dark:bg[#144122] text[#144122] dark:text-green-100'
               : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'
           }`}
         >
@@ -57,7 +57,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ onClose }) => {
           onClick={() => changeLanguage('ar')}
           className={`flex w-full items-center px-4 py-2 text-sm ${
             i18n.language === 'ar'
-              ? 'bg-blue-100 dark:bg-blue-900 text-blue-900 dark:text-blue-100'
+              ? 'bg-green-100 dark:bg[#144122] text[#144122] dark:text-green-100'
               : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'
           }`}
         >
