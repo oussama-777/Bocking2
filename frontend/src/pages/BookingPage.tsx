@@ -360,10 +360,10 @@ const BookingPage: React.FC = () => {
           <div className="mb-8 p-5">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-xl font-semibold text-gray-800 dark:text-white">
-                {t('booking.moroccanHotels', 'Moroccan Hotels')}
+                {t('booking.moroccanHotels', '')}
               </h2>
             </div>
-            {/* Add Moroccan hotels content here */}
+            {/* Add  content here */}
           </div>
         )}
       

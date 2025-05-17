@@ -33,6 +33,7 @@ const Login: React.FC = () => {
     password: '',
   });
   const [error, setError] = useState('');
+
   const [successMessage, setSuccessMessage] = useState('');
   const [loading, setLoading] = useState(false);
   
@@ -107,35 +108,50 @@ const Login: React.FC = () => {
           </div>
         )}
         
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-          <div className="rounded-md shadow-sm -space-y-px">
-            <div>
-              <label htmlFor="email" className="sr-only">{t('login.email')}</label>
+        <form className="mt-8 space-y-6" onSubmit={handleSubmit} autoComplete="off">
+          <div className="rounded-md space-y-4">
+            <div className="relative w-full group">
+              <span 
+                className="absolute -left-0.5 top-2 bottom-2 w-1.5 rounded bg-gradient-to-b from-green-500 to-emerald-500 opacity-70 transition-all duration-300 group-focus-within:opacity-100" 
+              ></span>
               <input
                 id="email"
                 name="email"
                 type="email"
-                autoComplete="email"
+                autoComplete="off"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white dark:bg-gray-700 rounded-t-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
-                placeholder={t('login.email')}
+                className="peer w-full pl-6 pr-4 pt-6 pb-2 text-sm text-gray-800 dark:text-white bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg shadow-md focus:border-transparent focus:ring-2 focus:ring-green-300 focus:outline-none transition-all duration-300 delay-200"
                 value={formData.email}
                 onChange={handleChange}
               />
+              <label 
+                htmlFor="email" 
+                className="absolute left-6 top-1 text-sm text-green-500 font-semibold"
+              > 
+                {t('login.email')}
+              </label>
             </div>
-            <div>
-              <label htmlFor="password" className="sr-only">{t('login.password')}</label>
+            
+            <div className="relative w-full group">
+              <span 
+                className="absolute -left-0.5 top-2 bottom-2 w-1.5 rounded bg-gradient-to-b from-green-500 to-emerald-500 opacity-70 transition-all duration-300 group-focus-within:opacity-100" 
+              ></span>
               <input
                 id="password"
                 name="password"
                 type="password"
-                autoComplete="current-password"
+                autoComplete="off"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white dark:bg-gray-700 rounded-b-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
-                placeholder={t('login.password')}
+                className="peer w-full pl-6 pr-4 pt-6 pb-2 text-sm text-gray-800 dark:text-white bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg shadow-md focus:border-transparent focus:ring-2 focus:ring-green-300 focus:outline-none transition-all duration-300 delay-200"
                 value={formData.password}
                 onChange={handleChange}
               />
+              <label 
+                htmlFor="password" 
+                className="absolute left-6 top-1 text-sm text-green-500 font-semibold"
+              > 
+                {t('login.password')}
+              </label>
             </div>
           </div>
           

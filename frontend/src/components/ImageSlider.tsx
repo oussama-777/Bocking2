@@ -8,34 +8,29 @@ export default function ImageSlider() {
   
   const [items, setItems] = useState([
     {
-      name: "Marrakech",
-      description: "Explore the vibrant markets and historic sites of Marrakech",
-      image: "/src/images/Wander through the bustling streets of Marrakech….jpeg"
-    },
-    {
-      name: "Chefchaouen",
-      description: "Wander through the famous blue streets of Chefchaouen",
-      image: "/src/images/Blue Banter_ The Colorful Charm of Chefchaouen….jpeg"
-    },
-    {
-      name: "Fes",
-      description: "Step back in time in the medieval medina of Fes",
-      image: "/src/images/Fes Travel Guide_ Best Things to Do & See in Fes….jpeg"
-    },
-    {
-      name: "Ait Ben Haddou",
-      description: "Visit this UNESCO World Heritage site",
-      image: "/src/images/Ait Ben haddou - Best Morocco Private Tours.jpeg"
-    },
-    {
-      name: "Ouzoud",
-      description: "Admire the magnificent Ouzoud waterfalls",
-      image: "/src/images/private day trip Marrakech to Ouzoud waterfalls….jpeg"
-    },
-    {
       name: "Casablanca",
       description: "Experience the modern side of Morocco in its largest city",
       image: "/src/images/morocco-mosque-casablanca-symmetry-216571135dafe106c9848a48878ab996.jpg"
+    },
+    {
+      name: "Traditional Morocco",
+      description: "Discover the rich cultural heritage of Morocco",
+      image: "/src/images/ramadan-morocco-traditional-mosque-178462f66f794a61f498a71a6994d018.jpg"
+    },
+    {
+      name: "Desert Adventure",
+      description: "Embark on an unforgettable journey through the Moroccan desert",
+      image: "/src/images/travel-blog-travel-photography-desert-caravan-087f844dfea95fcf0d5f23223ee7a2db.jpg"
+    },
+    {
+      name: "Morocco Highlights",
+      description: "Explore the diverse landscapes and attractions of Morocco",
+      image: "/src/images/téléchargement.jpeg"
+    },
+    {
+      name: "Scenic Morocco",
+      description: "Enjoy breathtaking views across Morocco's varied terrain",
+      image: "/src/images/wallpaperflare.com_wallpaper.jpg"
     }
   ]);
 
@@ -81,7 +76,7 @@ export default function ImageSlider() {
             <div className="flex flex-col sm:flex-row gap-4">
               <div className="relative inline-flex items-center justify-center gap-3 group">
                 <div
-                  className="absolute inset-0 duration-1000 opacity-60 transitiona-all bg-gradient-to-r from-green-400 via-green-500 to-emerald-600 rounded-xl blur-lg filter group-hover:opacity-100 group-hover:duration-200"
+                  className="absolute inset-0 duration-1000 opacity-60 transition-all bg-gradient-to-r from-green-400 via-green-500 to-emerald-600 rounded-xl blur-lg filter group-hover:opacity-100 group-hover:duration-200"
                 ></div>
                 <button 
                   onClick={() => navigate('/booking/hotels')}
@@ -109,27 +104,10 @@ export default function ImageSlider() {
               </div>
               <button 
                 onClick={() => navigate('/')}
-                className="bg-white hover:bg-gray-100 text-[#267c41] px-8 py-3 text-lg rounded-md font-medium transition duration-300"
+                className=" bg-white hover:bg-gray-100 text-[#267c41] px-8 py-3 text-lg rounded-md font-medium transition duration-300 "
               >
-                {t('home.hero.home', 'Home')}
+                {t('LearnMore', 'Learn more')}
               </button>
-            </div>
-          </div>
-          
-          {/* Thumbnail slides */}
-          <div className="absolute right-8 top-1/2 -translate-y-1/2 flex">
-            <div className="flex space-x-4">
-              {items.slice(1, 5).map((item, index) => (
-                <div
-                  key={index}
-                  className="h-56 w-40 rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105"
-                  style={{
-                    backgroundImage: `url(${item.image})`,
-                    backgroundPosition: 'center',
-                    backgroundSize: 'cover'
-                  }}
-                />
-              ))}
             </div>
           </div>
           
@@ -151,7 +129,7 @@ export default function ImageSlider() {
         </div>
       </div>
 
-      <style jsx global>{`
+      <style>{`
         @keyframes fadeIn {
           from {
             opacity: 0;
