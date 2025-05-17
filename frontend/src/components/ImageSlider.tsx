@@ -73,14 +73,14 @@ export default function ImageSlider() {
             <div className="mt-2 mb-4 text-sm animate-fadeInDelayed">
               {items[0].description}
             </div>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-row gap-4">
               <div className="relative inline-flex items-center justify-center gap-3 group">
                 <div
                   className="absolute inset-0 duration-1000 opacity-60 transition-all bg-gradient-to-r from-green-400 via-green-500 to-emerald-600 rounded-xl blur-lg filter group-hover:opacity-100 group-hover:duration-200"
                 ></div>
                 <button 
                   onClick={() => navigate('/booking/hotels')}
-                  className="group relative inline-flex items-center justify-center text-base rounded-xl bg-green-600 px-8 py-3 font-semibold text-white border-2 border-green-600 transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 hover:shadow-gray-600/30"
+                  className="group relative inline-flex items-center justify-center text-base rounded-xl bg-green-600 px-8 py-3 font-semibold text-white border-2 border-green-600 transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 hover:shadow-gray-600/30 whitespace-nowrap"
                 >
                   {t('home.hero.bookNow', 'Book Now')}
                   <svg
@@ -103,8 +103,8 @@ export default function ImageSlider() {
                 </button>
               </div>
               <button 
-                onClick={() => navigate('/')}
-                className=" bg-white hover:bg-gray-100 text-[#267c41] px-8 py-3 text-lg rounded-md font-medium transition duration-300 "
+                onClick={() => navigate('/learn-more')}
+                className="bg-white hover:bg-gray-100 text-[#267c41] px-8 py-3 text-lg rounded-md font-medium transition duration-300 whitespace-nowrap"
               >
                 {t('LearnMore', 'Learn more')}
               </button>

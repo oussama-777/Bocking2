@@ -157,15 +157,60 @@ const Login: React.FC = () => {
           
           <div className="flex items-center justify-between">
             <div className="flex items-center">
-              <input
-                id="remember_me"
-                name="remember_me"
-                type="checkbox"
-                className="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 dark:border-gray-600 rounded"
-              />
-              <label htmlFor="remember_me" className="ml-2 rtl:mr-2 rtl:ml-0 block text-sm text-gray-900 dark:text-gray-300">
-                {t('login.rememberMe')}
+              <label 
+                htmlFor="remember_me" 
+                className="relative h-[2.2em] w-[2.2em] rounded-[1em] bg-[#b3ffda] shadow-[inset_-1px_1px_4px_0px_#f0fff5,inset_1px_-1px_4px_0px_#00bd6e,-1px_2px_4px_0px_#00bd6e]" 
+              > 
+                <input 
+                  type="checkbox" 
+                  name="remember_me" 
+                  id="remember_me" 
+                  className="peer appearance-none" 
+                /> 
+                <span 
+                  className="absolute left-1/2 top-1/2 h-[1.5em] w-[1.5em] -translate-x-1/2 -translate-y-1/2 rounded-[0.7em] bg-[#ccffe0] shadow-[inset_-1px_1px_4px_0px_#f0fff5,inset_1px_-1px_4px_0px_#00bd6e,-1px_1px_2px_0px_#00bd6e] duration-[200ms] peer-checked:shadow-[inset_1px_-1px_4px_0px_#f0fff5,inset_-1px_1px_4px_0px_#00bd6e]" 
+                > 
+                </span> 
+                <svg 
+                  fill="#00753d" 
+                  viewBox="-3.2 -3.2 38.40 38.40" 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  className="absolute left-1/2 top-1/2 h-[1.5em] w-[1.5em] -translate-x-1/2 -translate-y-1/2 peer-checked:opacity-0" 
+                > 
+                  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g> 
+                  <g 
+                    id="SVGRepo_tracerCarrier" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                  ></g> 
+                  <g id="SVGRepo_iconCarrier"> 
+                    <path 
+                      d="M5 16.577l2.194-2.195 5.486 5.484L24.804 7.743 27 9.937l-14.32 14.32z" 
+                    ></path> 
+                  </g> 
+                </svg> 
+                <svg 
+                  fill="#00753d" 
+                  viewBox="0 0 1024 1024" 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  className="absolute left-1/2 top-1/2 h-[1.5em] w-[1.5em] -translate-x-1/2 -translate-y-1/2 opacity-0 peer-checked:opacity-100" 
+                > 
+                  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g> 
+                  <g 
+                    id="SVGRepo_tracerCarrier" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                  ></g> 
+                  <g id="SVGRepo_iconCarrier"> 
+                    <path 
+                      d="M697.4 759.2l61.8-61.8L573.8 512l185.4-185.4-61.8-61.8L512 450.2 326.6 264.8l-61.8 61.8L450.2 512 264.8 697.4l61.8 61.8L512 573.8z" 
+                    ></path> 
+                  </g> 
+                </svg> 
               </label>
+              <span className="ml-3 rtl:mr-3 rtl:ml-0 block text-sm text-gray-900 dark:text-gray-300">
+                {t('login.rememberMe')}
+              </span>
             </div>
             
             <div className="text-sm">
@@ -176,23 +221,51 @@ const Login: React.FC = () => {
           </div>
           
           <div>
-            <button
-              type="submit"
-              disabled={loading}
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-[#1a552c] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {loading ? (
-                <span className="flex items-center">
-                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                  </svg>
-                  {t('login.loggingIn')}
+            <div className="relative group">
+              <button
+                type="submit"
+                disabled={loading}
+                className="relative inline-block p-px font-semibold leading-6 text-white bg-gray-800 shadow-2xl cursor-pointer rounded-xl shadow-zinc-900 transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed w-full"
+              >
+                <span
+                  className="absolute inset-0 rounded-xl bg-gradient-to-r from-green-400 via-emerald-500 to-green-600 p-[2px] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                ></span>
+
+                <span className="relative z-10 block px-6 py-3 rounded-xl bg-gray-900 w-full">
+                  <div className="relative z-10 flex items-center justify-center space-x-2">
+                    {loading ? (
+                      <span className="flex items-center">
+                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        {t('login.loggingIn')}
+                      </span>
+                    ) : (
+                      <>
+                        <span className="transition-all duration-500 group-hover:translate-x-1">
+                          {t('login.signIn')}
+                        </span>
+                        <svg
+                          className="w-6 h-6 transition-transform duration-500 group-hover:translate-x-1"
+                          data-slot="icon"
+                          aria-hidden="true"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clipRule="evenodd"
+                            d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
+                            fillRule="evenodd"
+                          ></path>
+                        </svg>
+                      </>
+                    )}
+                  </div>
                 </span>
-              ) : (
-                t('login.signIn')
-              )}
-            </button>
+              </button>
+            </div>
           </div>
         </form>
         
