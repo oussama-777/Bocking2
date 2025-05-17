@@ -125,16 +125,40 @@ const Navbar: React.FC = () => {
               <>
                 <Link
                   to="/login"
-                  className="px-3 py-2 text-gray-700 dark:text-gray-200 hover:text-green-600 dark:hover:text-green-400 transition duration-300"
+                  className="block px-3 py-2 text-gray-700 dark:text-gray-200 hover:text-green-600 dark:hover:text-green-400 transition duration-300 mr-3"
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   {t('navbar.login')}
                 </Link>
-                <Link
-                  to="/signup"
-                  className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-[#267c41] transition duration-300"
-                >
-                  {t('navbar.signup')}
-                </Link>
+                <div className="relative inline-flex items-center justify-center gap-3 group ">
+                  <div
+                    className="absolute inset-0 duration-1000 opacity-60 transitiona-all bg-gradient-to-r from-green-400 via-green-500 to-emerald-600 rounded-xl blur-lg filter group-hover:opacity-100 group-hover:duration-200"
+                  ></div>
+                  <Link
+                    to="/signup"
+                    className="group relative inline-flex items-center justify-center text-sm rounded-xl bg-white px-5 py-2 font-semibold text-green-600 border-2 border-green-600 transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 hover:shadow-gray-600/30"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {t('navbar.signup')}
+                    <svg
+                      aria-hidden="true"
+                      viewBox="0 0 10 10"
+                      height="8"
+                      width="8"
+                      fill="none"
+                      className="mt-0.5 ml-1 -mr-1 stroke-green-600 stroke-2"
+                    >
+                      <path
+                        d="M0 5h7"
+                        className="transition opacity-0 group-hover:opacity-100"
+                      ></path>
+                      <path
+                        d="M1 1l4 4-4 4"
+                        className="transition group-hover:translate-x-[3px]"
+                      ></path>
+                    </svg>
+                  </Link>
+                </div>
               </>
             )}
           </div>
@@ -228,18 +252,40 @@ const Navbar: React.FC = () => {
                 <>
                   <Link
                     to="/login"
-                    className="block px-3 py-2 text-gray-700 dark:text-gray-200 hover:text-green-600 dark:hover:text-green-400 transition duration-300"
+                    className="block px-3 py-2 text-gray-700 dark:text-gray-200 hover:text-green-600 dark:hover:text-green-400 transition duration-300 mb-2"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {t('navbar.login')}
                   </Link>
-                  <Link
-                    to="/signup"
-                    className="block px-3 py-2 bg-green-600 text-white rounded-md hover:bg-[#267c41] transition duration-300"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {t('navbar.signup')}
-                  </Link>
+                  <div className="relative inline-flex items-center justify-center gap-3 group">
+                    <div
+                      className="absolute inset-0 duration-1000 opacity-60 transitiona-all bg-gradient-to-r from-indigo-500 via-pink-500 to-yellow-400 rounded-xl blur-lg filter group-hover:opacity-100 group-hover:duration-200"
+                    ></div>
+                    <Link
+                      to="/signup"
+                      className="group relative inline-flex items-center justify-center text-sm rounded-xl bg-white px-5 py-2 font-semibold text-green-600 border-2 border-green-600 transition-all duration-200 hover:bg-green-50 hover:shadow-lg hover:-translate-y-0.5 hover:shadow-gray-600/30"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {t('navbar.signup')}
+                      <svg
+                        aria-hidden="true"
+                        viewBox="0 0 10 10"
+                        height="8"
+                        width="8"
+                        fill="none"
+                        className="mt-0.5 ml-1 -mr-1 stroke-green-600 stroke-2"
+                      >
+                        <path
+                          d="M0 5h7"
+                          className="transition opacity-0 group-hover:opacity-100"
+                        ></path>
+                        <path
+                          d="M1 1l4 4-4 4"
+                          className="transition group-hover:translate-x-[3px]"
+                        ></path>
+                      </svg>
+                    </Link>
+                  </div>
                 </>
               )}
             </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Routes, Route, NavLink, useNavigate } from 'react-router-dom';
+import { Routes, Route, NavLink, useNavigate, Navigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { 
   ShoppingBag, 
@@ -170,11 +170,13 @@ const AdminDashboard: React.FC = () => {
           {/* Main content */}
           <main className="flex-1 bg-white dark:bg-gray-900 rounded-lg shadow-md p-6">
             <Routes>
-              <Route path="/products" element={<ProductsTab />} />
-              <Route path="/bookings" element={<BookingsTab />} />
-              <Route path="/analytics" element={<AnalyticsTab />} />
-              <Route path="/reports" element={<ReportsTab />} />
-              <Route path="/settings" element={<SettingsTab />} />
+              {/* Add a default redirect to products */}
+              <Route path="/" element={<Navigate to="products" replace />} />
+              <Route path="products" element={<ProductsTab />} />
+              <Route path="bookings" element={<BookingsTab />} />
+              <Route path="analytics" element={<AnalyticsTab />} />
+              <Route path="reports" element={<ReportsTab />} />
+              <Route path="settings" element={<SettingsTab />} />
             </Routes>
           </main>
         </div>

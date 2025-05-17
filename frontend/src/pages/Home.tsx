@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useTheme } from '../context/ThemeContext';
 import CategoryCard from '../components/CategoryCard';
 import AiAssistant from '../components/AiAssistant';
+import ImageSlider from '../components/ImageSlider';
 import { useNavigate } from 'react-router-dom';
 import { MapPin } from 'lucide-react';
 
@@ -64,47 +65,10 @@ const Home: React.FC = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative text-white py-20 h-[350px] overflow-hidden">
-        <img 
-          src="/src/images/Morocco-Culture.jpg" 
-          alt="Morocco Way Background" 
-          className="absolute inset-0 w-full h-full object-cover opacity-90"
-          style={{
-            width: '100vw',
-            height: '100%',
-            objectPosition: 'center'
-          }}
-        />
-        {/* Overlay with gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#144122]/60 to-[#267c41]/30"></div>
-        
-        
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative h-full flex flex-col justify-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            {t('home.hero.title', 'Book Your Next Adventure')}
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-            {t('home.hero.subtitle', 'Find the perfect car, hotel, restaurant, or activity for your journey')}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button 
-              onClick={() => navigate('/booking/hotels')}
-              className="bg-[#267c41] hover:bg-[#206836] text-white px-6 py-3 rounded-md font-medium transition duration-300"
-            >
-              {t('home.hero.bookNow', 'Book Now')}
-            </button>
-            <button 
-              onClick={() => navigate('/learn-more')}
-              className="bg-white hover:bg-gray-100 text-[#267c41] px-6 py-3 rounded-md font-medium transition duration-300"
-            >
-              {t('home.hero.learnMore', 'Learn More')}
-            </button>
-          </div>
-        </div>
+      {/* Hero Section with Image Slider */}
+      <section className="relative text-white py-10 overflow-hidden">
+        <ImageSlider />
       </section>
-
 
       {/* Categories Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-8">

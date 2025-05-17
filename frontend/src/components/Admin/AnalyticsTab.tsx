@@ -84,6 +84,7 @@ const AnalyticsTab: React.FC = () => {
           </div>
         </div>
       </div>
+      
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
         <div key="total-bookings" className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
